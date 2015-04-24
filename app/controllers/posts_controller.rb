@@ -55,6 +55,7 @@ class PostsController < ApplicationController
   private
     def post_params
       params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :category, :flight_number, :is_active)
+
     end
 
     def post_update_params

@@ -1,24 +1,27 @@
 
+<div class="post-ad">
+<h2 class='post-name'>
+	<span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
+	<%= @person_name %>
+</h2>
+	
+<div class='post-content'>
+  <div>
+  <table class="table">
+  	<tr><td>
+  		<strong> Weight: </strong> <%= @post.weight %> kgs <br>
+  		<strong> Flight Schedule: </strong> <%= @dof_str %> <br>
+  		<strong> Ticket ID: </strong> <%= @post.ticket_id %>
+  	</td></tr>
+  	<tr>
+  		<td>
+  			 <strong> Details: </strong>
+  				<p><%= @post.details %></p>
+  		</td>
+  	</tr>
+  </table>
 
-	<h2><%= @person_name %></h2>
-<p>
-  <strong> <%= @person_name %> </strong>
-  <br>
-  
-  <strong> Weight </strong>
-  <p><%= @post.weight %></p>
 
-  <strong> Details </strong>
-  <p><%= @post.details %></p>
-
-  <strong> Flight Schedule </strong>
-  <p><%= @dof_str %></p>
-
-  <strong> Ticket ID </strong>
-  <p><%= @post.ticket_id %></p>
-
-
-  </p>
   <br>
   
   <% if @post.is_active %>
@@ -38,3 +41,4 @@
   <strong>This offer is no longer available</strong>
 
 <% end %>
+</div>
