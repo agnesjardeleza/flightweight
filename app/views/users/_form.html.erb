@@ -1,0 +1,26 @@
+<%= form_tag :role=>'form', :action=>'create' do %>
+
+	<div>
+	<%= label :user, 'Username: ' %>
+	<%= text_field :user, :username, :value=>@username, :placeholder=>@unameholder %>
+	</div>
+
+	<div>
+	<%= label :user, 'Password: ' %>
+	<%= password_field :user, :password, :placeholder=>'********'%>
+	</div>
+
+	<div>
+	<%= label :user, 'Confirm Password: ' %>
+	<%= password_field :user, :password_confirmation, :placeholder=>'********'%>
+	</div>
+
+	<%= hidden_field :user, :role, :value=>'admin'%>
+
+	<%= label :person, 'First Name: ' %>
+	<%= text_field :person, :first_name %>
+
+	
+
+	<%= button_tag 'Create Account', :type=>'submit' %>
+<% end %>

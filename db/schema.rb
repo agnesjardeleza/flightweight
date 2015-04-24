@@ -11,6 +11,70 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150424145742) do
+
+  create_table "bids", force: true do |t|
+    t.integer  "bidder_id"
+    t.integer  "post_id"
+    t.integer  "weight_to_be_used"
+    t.text     "details"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", force: true do |t|
+    t.integer  "commenter_id"
+    t.integer  "person_id"
+    t.integer  "rating"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "mid_init"
+    t.date     "dob"
+    t.string   "address"
+    t.string   "contact_num"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.integer  "poster_id"
+    t.integer  "weight"
+    t.date     "date_of_flight"
+    t.text     "details"
+    t.integer  "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", force: true do |t|
+    t.date     "date"
+    t.integer  "poster"
+    t.integer  "bidder"
+    t.integer  "post_id"
+    t.integer  "bid_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "password"
+    t.string   "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

@@ -31,8 +31,14 @@ GEM
     autoprefixer-rails (5.1.9)
       execjs
       json
+<<<<<<< HEAD
     bootstrap-datepicker-rails (1.4.0)
       railties (>= 3.0)
+=======
+    bcrypt (3.1.10)
+    bcrypt-ruby (3.1.5)
+      bcrypt (>= 3.1.3)
+>>>>>>> 1f4fc1838bdef938c8047e4e6286adefd1d2b00a
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
@@ -118,7 +124,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   bootstrap-datepicker-rails
+=======
+  bcrypt-ruby
+>>>>>>> 1f4fc1838bdef938c8047e4e6286adefd1d2b00a
   bootstrap-sass
   coffee-rails (~> 4.0.0)
   jbuilder (~> 2.0)

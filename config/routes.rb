@@ -5,6 +5,19 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'static_pages#home'
 
+  resources :users do
+    collection do
+      get 'login' => 'users#log_in'
+      post 'login' => 'users#sign_in'
+    end
+  end
+
+  resources :comments
+  resources :posts
+  resources :transactions
+  resources :categories
+  resources :bids
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

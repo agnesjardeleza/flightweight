@@ -40,6 +40,6 @@ gem 'spring',        group: :development
 
 gem 'mysql2'
 gem 'rb-readline'
-
+gem 'bcrypt-ruby', :require=>'bcrypt'
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
