@@ -34,6 +34,31 @@ class UsersController < ApplicationController
 		
 	end
 
+  def login
+    
+    if current_user == nil
+      @user = User.new
+    end
+
+  end
+
+  def sign_in
+    
+    username = params[:user][:username]
+    password = params[:user][:password]
+
+    user = User.authenticate(username, password)
+
+    if user
+      session[:user_id] = user.id
+      @user = (current_user.role == 'admin')? User.where(user_id:current_user.id).first : nil
+      redirect_to :root
+    else
+      flash[:error] = "Invalid username or password."
+      redirect_to sign_in_users_path
+    end
+  end
+
 	private
 		def user_params
 			params.require(:user).permit(:username, :password, :password_confirmation, :role)
@@ -42,5 +67,4 @@ class UsersController < ApplicationController
 		def person_params
 			params.require(:person).permit(:first_name, :last_name, :mid_name, :address, :contact_num, :email).merge(:user_id => @user.id)
 		end
-
 end
