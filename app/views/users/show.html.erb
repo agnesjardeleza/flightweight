@@ -10,14 +10,27 @@ E-mail Address: <%= @person.email %><br>
 
 <% if @posts.length > 0 %>
 	<% @posts.reverse.each do |x| %>
-		Category: <%= x.category %><br>
+		Category: <%= x.category %> | 
+		posted by  
+		<% if User.find(x.poster_id).username == current_user.username %>
+			you
+		<% else %>
+			<%= User.find(x.poster_id).username%>
+		<% end %>
+		on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %><br>
 		Date of Flight: <%= x.date_of_flight.to_time.strftime("%I:%M %P")%><br>
 		<% if x.category == 'request' %>
 			Weight Needed: 		
 		<% else %>
 			Weight Offered: 
 		<% end %>
-		<%= x.weight %><br><br>
+		<%= x.weight %><br>
+		<%= link_to 'View', post_path(poster_id: x.poster_id) %> 
+		<% if current_user == User.find(x.poster_id) %>| 
+			<%= link_to 'Edit', edit_post_path(poster_id: x.poster_id) %> | 
+			<%= link_to 'Delete' ,post_path(user_id: x.poster_id, id: x.id), method: :delete %>
+		<% end %>
+		<br><br>
 	<% end %>
 <% else %>
 	This user doesn't have any posts yet.
