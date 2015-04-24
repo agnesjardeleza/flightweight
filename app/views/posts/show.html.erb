@@ -10,7 +10,7 @@
   <table class="table">
   	<tr><td>
   		<strong> Weight: </strong> <%= @post.weight %> kgs <br>
-  		<strong> Flight Schedule: </strong> <%= @dof_str %> <br>
+  		<strong> Flight Schedule: </strong> <%= @post.date_of_flight.strftime("%b %d, %Y, %I:%M %P") %> <br>
   		<strong> Flight Number: </strong> <%= @post.flight_number %>
   	</td></tr>
   	<tr>

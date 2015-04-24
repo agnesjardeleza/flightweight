@@ -4,7 +4,7 @@ class CreatePosts < ActiveRecord::Migration
 
       t.integer :poster_id
       t.integer :weight
-      t.date   :date_of_flight
+      t.datetime   :date_of_flight
       t.text    :details
       t.integer :category
       t.string :category

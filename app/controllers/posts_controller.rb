@@ -25,16 +25,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find_by(poster_id: params[:poster_id])
+    @post = Post.find(params[:id])
     @user = User.find(@post.poster_id)
-    dof = @post.date_of_flight.to_s.split('-')
-    @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
   end
 
   def create
     @post = Post.new(post_params)
     @post.poster_id = current_user.id
-    @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y')
+    @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y %I:%M %P')
     @post.is_active = true
     if @post.save 
       redirect_to @post
@@ -57,12 +55,12 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :category, :flight_number, :is_active)
+      params.require(:post).permit(:weight, :date_of_flight, :details, :category, :flight_number)
 
     end
 
     def post_update_params
-      params.require(:post).permit(:weight, :date_of_flight, :details, :category, :flight_number, :is_active)
+      params.require(:post).permit(:weight, :date_of_flight, :details, :category, :flight_number)
     end
     
 end
