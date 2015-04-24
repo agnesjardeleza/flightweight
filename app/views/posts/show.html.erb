@@ -23,17 +23,17 @@
 
 
   <br>
-  
+  <%= render 'bids/list' %>
+
   <% if current_user.id != @post.poster_id %>
   
     <p> 
-    <strong> Add Bid </strong>
     <%= render 'bids/form' %>
      </p>
      <br>
 
   <% end %>
 
-  <%= render 'bids/list' %>
+  
 </div>
 </div>

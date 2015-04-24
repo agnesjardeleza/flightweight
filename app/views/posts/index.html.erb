@@ -1,12 +1,24 @@
 
+<table class="table">
+
 <% @posts.each do |p| %>
   
   <% dof = p.date_of_flight.to_s.split("-") %>
   <% dof_str = dof[1] + "/" + dof[2] + "/" + dof[0] %>
+  <tr><td>
   <div>
-    <strong>Poster</strong> <%= Person.find(p.poster_id).fullname %> <br>
-    <strong>Weight</strong> <%= p.weight %> <br>
-    <strong>Date of Flight:</strong> <%= dof_str  %> <br>
-    <%= link_to 'View', p %> 
+  <div>
+		<span><img class="profile-pic-sm" src="<%= asset_path 'default_profile.jpg'%>"></span>
+		<strong><%= Person.find(p.poster_id).fullname %></strong>
+	</div>
+	<div class='post-preview'>
+    <!-- <strong>Poster</strong> <%#= Person.find(p.poster_id).fullname %> <br> -->
+    Weight: <%= p.weight %> kgs<br>
+    Date of Flight: <%= dof_str  %> <br>
+    <%= link_to 'View details', p %> 
   </div>
+  </div>
+  </td></tr>
 <% end %>
+
+</table>
