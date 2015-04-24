@@ -1,13 +1,10 @@
 <h1>Home</h1>
-<!-- <<<<<<< HEAD -->
 
 <%#= current_person.fullname %>
-<!-- ======= -->
-<% if current_user %>
-	<% if current_user.role == 'admin' %>
-		Super System Administrator
-	<% else %>
+<%# if current_user %>
+	<%# if current_user.role == 'admin' %>
+		<!--Super System Administrator-->
+	<%# else %>
 		<%#= current_person.fullname %>
-	<% end %>
-<% end %>
-<!-- >>>>>>> 0914c0ebdbe99ec37e442112b9bb87d41f238c4c -->
+	<%# end %>
+<%# end %>

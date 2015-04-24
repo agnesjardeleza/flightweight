@@ -20,8 +20,25 @@
 
    <p>
    <%= f.label :category %><br>
+<<<<<<< HEAD
+   <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']])  %>
+  </p>
+  
+  <p>
+    <%= f.label :ticket_id %><br>
+    <%= f.text_field :ticket_id %>
+  </p>
+
+  <%= f.hidden_field :is_active, true %>
+
+
+ <p>
+    <%= f.submit %>
+  </p>
+=======
    <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']], {class: 'form-control'})  %>
 </p>
+>>>>>>> ae0e5395d473f7e02f421c7d0a2a76d7faac2323
  
  <div class="pull-right"><br> 
   <%= button_tag 'Submit', :type=>'submit', :class=>'btn btn-primary'%>

@@ -9,7 +9,16 @@ E-mail Address: <%= @person.email %><br>
 <h2> Posts: </h2>
 
 <% if @posts.length > 0 %>
-
+	<% @posts.each do |x| %>
+		Category: <%= x.category %><br>
+		Date of Flight: <%= x.date_of_flight.to_time.strftime("%I:%M %P")%><br>
+		<% if x.category == 'request' %>
+			Weight Needed: 		
+		<% else %>
+			Weight Offered: 
+		<% end %>
+		<%= x.weight %><br><br>
+	<% end %>
 <% else %>
 	This user doesn't have any posts yet.
 <% end %>

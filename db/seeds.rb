@@ -17,3 +17,11 @@ person = Person.create(user_id: 3,first_name: 'Genesis', last_name: 'Palaganas',
 
 user = User.create(username: 'ddhostallero', password: '1234', role: 'regular')
 person = Person.create(user_id: 4,first_name: 'David', last_name: 'Hostallero', mid_name: 'D', address: 'UP Diliman', contact_num: '09777777777', email:'ddhostallero@gmail.com')
+
+i = 0
+
+while i < 10
+	post = Post.create(poster_id: 2, weight: i+1, date_of_flight: '2015-04-08', details: 'detail' + i.to_s, ticket_id: 12343+i , category: 'request')
+	post = Post.create(poster_id: 3, weight: i+1, date_of_flight: '2015-04-08', details: 'detail' + i.to_s, ticket_id: 12343+i+1, category: 'advertisement' )
+	i = i+1
+end
