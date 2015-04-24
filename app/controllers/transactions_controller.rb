@@ -12,15 +12,6 @@ class TransactionsController < ApplicationController
     @transaction= Transaction.find(params[:id])
   end
 
-  def update
-    @transaction =  Transaction.find(params[:id])
-
-    if @transaction.update(transaction_params)
-      redirect_to @transaction
-    else
-      render 'edit'
-    end
-  end
 
   def show
     @transaction = Transaction.find(params[:id])

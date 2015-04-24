@@ -1,10 +1,14 @@
 <h1>Home</h1>
 
-<%#= current_person.fullname %>
-<%# if current_user %>
-	<%# if current_user.role == 'admin' %>
-		<!--Super System Administrator-->
-	<%# else %>
-		<%#= current_person.fullname %>
-	<%# end %>
-<%# end %>
+<%= @posts.each do |x| %>
+	Category: <%= x.category %>
+	 | posted by <%= User.find(x.poster_id).username %>
+	  on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %><br>
+	Date of Flight: <%= x.date_of_flight.to_time.strftime("%I:%M %P")%><br>
+	<% if x.category == 'request' %>
+		Weight Needed: 		
+	<% else %>
+		Weight Offered: 
+	<% end %>
+	<%= x.weight %><br><br>
+<% end %> 
