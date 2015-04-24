@@ -9,6 +9,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :category
       t.string :category
       t.string  :ticket_id
+      t.boolean :is_active
        
       t.timestamps
     end
