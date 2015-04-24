@@ -1,0 +1,16 @@
+<%= form_for :transaction, url: transaction_path do |f| %>
+  
+
+
+  <%= hidden_field_tag :post_id, @post.id %>
+  <%= hidden_field_tag :bid_id, b_id %>
+  <%= hidden_field_tag :poster, @post.poster_id %>
+  <%= hidden_field_tag :bidder, Bid.find(b_id).bidder_id %>
+  
+  <%= f.submit "Approve" %>
+  
+  </p>
+ 
+<% end %>
+ 
+
