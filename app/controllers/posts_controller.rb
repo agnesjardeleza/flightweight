@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post= Post.find(params[:id])
+    @post= Post.find_by(poster_id: params[:poster_id])
     dof = @post.date_of_flight.to_s.split('-')
     @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
   end
@@ -25,9 +25,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
-    @person = Person.find(@post.poster_id)
-    @person_name = @person.first_name + " " + @person.mid_name + " " + @person.last_name 
+    @post = Post.find_by(poster_id: params[:poster_id])
+    @user = User.find(@post.poster_id)
     dof = @post.date_of_flight.to_s.split('-')
     @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
   end
@@ -41,6 +40,12 @@ class PostsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:poster_id]).destroy
+    redirect_to @user
   end
 
   def search_results

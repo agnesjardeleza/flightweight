@@ -2,7 +2,7 @@
 <div class="post-ad">
 <h2 class='post-name'>
 	<span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
-	<%= @person_name %>
+	<%= Person.find_by(user_id: @user.id).fullname %>
 </h2>
 	
 <div class='post-content'>
