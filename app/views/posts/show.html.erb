@@ -15,4 +15,17 @@
   <p><%= @post.ticket_id %></p>
 
 
-</p>
+  </p>
+  <br>
+  
+  <% if current_user.id != @post.poster_id %>
+  
+    <p> 
+    <strong> Add Bid </strong>
+    <%= render 'bids/form' %>
+     </p>
+     <br>
+
+  <% end %>
+
+  <%= render 'bids/list' %>
