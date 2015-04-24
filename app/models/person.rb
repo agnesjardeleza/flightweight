@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
 
 
 	def fullname
-		last_name + ", " + first_name + ", " + mid_name 
+		first_name + " " + mid_name + " " + last_name 
 	end
 
 end

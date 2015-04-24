@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150424145742) do
 
   create_table "comments", force: true do |t|
     t.integer  "commenter_id"
-    t.integer  "person_id"
+    t.integer  "user_id"
     t.integer  "rating"
     t.text     "comment"
     t.datetime "created_at"

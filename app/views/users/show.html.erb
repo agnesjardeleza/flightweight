@@ -1,0 +1,16 @@
+<h1><%= @person.fullname %></h1><br>
+
+Address: <%= @person.address %><br>
+Contact Number: <%= @person.contact_num %><br>
+E-mail Address: <%= @person.email %><br>
+
+<br>
+<br>
+
+<h2> Comments: </h2>
+
+<% if @comments.length > 0 %>
+
+<% else %>
+	There are no comments available for this user.
+<% end %>
