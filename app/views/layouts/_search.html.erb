@@ -1,14 +1,11 @@
 <div class="container-fluid">
-<!--<form>-->
-  <div class="form-group">
-    <label for="exampleInputEmail1">Flight number</label>
-    <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Flight number">-->
-  </div>
-<!-- 
-  <button type="submit" class="btn btn-default pull-right">Search</button>
-</form>-->
-   <%= form_tag({controller: 'searches', action: 'search_flight_number'}, method: 'get') do %>
+
+
+  <%= form_tag({controller: 'searches', action: 'search_flight_number'}, method: 'get') do %>
+      <div class="form-group">
+      <%= label_tag :flight_number %><br>
       <%= text_field_tag :flight_number, nil, placeholder: 'Flight number', class: 'form-control' %>
+      </div>
       <button type ="submit" class="btn btn-default pull-right">Search</button>
   <% end %> 
 

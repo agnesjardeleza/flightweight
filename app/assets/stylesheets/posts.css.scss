@@ -1,3 +1,22 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-pic{
+	border-radius: 1000px;
+	height: 100px;
+}
+
+.post-ad{
+	margin-top: 20px;
+	margin-left: 20px;
+	padding-top: 20px;
+}
+
+.post-name{
+	border-bottom: aliceblue 1px solid;
+}
+
+.post-content{
+	padding-left: 50px;
+}
