@@ -1,51 +1,48 @@
 <%= form_tag :role=>'form', :action=>'create' do %>
 
-	<div>
-	<%= label :user, 'Username: ' %>
-	<%= text_field :user, :username, :value=>@username, :placeholder=>@unameholder %>
-	</div>
+	<div class="row">
+  <div class="col-md-4"><br>  
+	<%#= label :user, 'Username: ' %>
+	<%= text_field :user, :username, :value=>@username, :placeholder=>"Username", class: "form-control" %>
+	<!-- </div> -->
+	<br>
 
-	<div>
-	<%= label :user, 'Password: ' %>
-	<%= password_field :user, :password, :placeholder=>'********'%>
-	</div>
+  <!-- <div class="col-md-8"><br>   -->
+	<%#= label :user, 'Password: ' %>
+	<%= password_field :user, :password, :placeholder=>'Password', class: "form-control"%>
+	<!-- </div> -->
+	<br>
 
-	<div>
-	<%= label :user, 'Confirm Password: ' %>
-	<%= password_field :user, :password_confirmation, :placeholder=>'********'%>
-	</div>
+	<!-- <div class="col-md-8"><br>   -->
+	<%#= label :user, 'Confirm Password: ' %>
+	<%= password_field :user, :password_confirmation, :placeholder=>'Confirm password', class: "form-control"%>
+	<!-- </div> -->
+	<br>
 
 	<%= hidden_field :user, :role, :value=>'regular' %>
 
-	<div>
-	<%= label :person, 'First Name: ' %>
-	<%= text_field :person, :first_name %>
-	</div>
+	<!-- <div class="col-md-8"><br>   -->
+	<%#= label :person, 'First Name: ' %>
+	<!-- <div class="form-inline"> -->
+	<%= text_field :person, :first_name, :placeholder=>'First name',class: "form-control" %>
+	<br>
+	<%= text_field :person, :mid_name, :placeholder=>'Middle name',class: "form-control" %>
+	<br>
+	<%= text_field :person, :last_name, :placeholder=>'Last name',class: "form-control" %>
+	<!-- </div> -->
+	<br>
+	
+	<%= text_field :person, :address, :placeholder=>'Address',class: "form-control" %>
+	<br>
 
-	<div>
-	<%= label :person, 'Last Name: ' %>
-	<%= text_field :person, :last_name %>
-	</div>
+	<%= text_field :person, :contact_num, :placeholder=>'Contact nuber',class: "form-control" %>
+	<br>
+	
+	<%= text_field :person, :email, :placeholder=>'Email',class: "form-control" %>
+	<br>
 
-	<div>
-	<%= label :person, 'Middle Name: ' %>
-	<%= text_field :person, :mid_name %>
+	<div class="pull-right"><br> 
+	<%= button_tag 'Create Account', :type=>'submit', :class=>'btn btn-primary'%>
 	</div>
-
-	<div>
-	<%= label :person, 'Address: ' %>
-	<%= text_field :person, :address %>
 	</div>
-
-	<div>
-	<%= label :person, 'Contact Number: ' %>
-	<%= text_field :person, :contact_num %>
-	</div>
-
-	<div>
-	<%= label :person, 'E-mail: ' %>
-	<%= text_field :person, :email %>
-	</div>
-
-	<%= button_tag 'Create Account', :type=>'submit' %>
 <% end %>
