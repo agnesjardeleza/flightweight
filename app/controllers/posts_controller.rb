@@ -53,11 +53,11 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :ticket_id)
+      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :category, :details, :ticket_id)
     end
 
     def post_update_params
-      params.require(:post).permit(:weight, :date_of_flight, :details, :ticket_id)
+      params.require(:post).permit(:weight, :date_of_flight, :details, :category, :ticket_id)
     end
 
 

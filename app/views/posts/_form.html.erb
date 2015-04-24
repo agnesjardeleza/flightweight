@@ -18,14 +18,8 @@
   </p>
 
    <p>
-  <%= f.label :category %><br>
-  <%= f.collection_select(:category, Category.all, :id, :name, 
-		{ :prompt => "Select Category" }, { }) %>
    <%= f.label :category %><br>
    <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']])  %>
-
-	
-  
   </p>
   
   <p>
