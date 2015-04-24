@@ -29,10 +29,18 @@ class UsersController < ApplicationController
 	def update
 			
 	end
+ 
+  def destroy
+    
+    @User = User.find(current_user.id)
 
-	def destroy
-	end
+    @posts = Post.where(user_id: current_user.id)
 
+    @posts.each do |x|
+      x.destroy
+    end
+
+  end
   def login
     
     if current_user == nil
