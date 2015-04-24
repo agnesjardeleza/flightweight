@@ -1,0 +1,12 @@
+
+<% @posts.each do |p| %>
+  
+  <% dof = p.date_of_flight.to_s.split("-") %>
+  <% dof_str = dof[1] + "/" + dof[2] + "/" + dof[0] %>
+  <div>
+    <strong>Poster</strong> <%= Person.find(p.poster_id).fullname %> <br>
+    <strong>Weight</strong> <%= p.weight %> <br>
+    <strong>Date of Flight:</strong> <%= dof_str  %> <br>
+    <%= link_to 'View', p %> 
+  </div>
+<% end %>
