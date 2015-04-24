@@ -12,3 +12,9 @@ person = Person.create(user_id: 1, first_name: 'super', last_name: 'system', mid
 
 user = User.create(username: 'cdbillones', password: '1234', role: 'regular')
 person = Person.create(user_id: 2,first_name: 'Cjay', last_name: 'Billones', mid_name: 'dela Cruz', address: 'UP Diliman', contact_num: '09999999999', email:'billonesciprian08@gmail.com')
+
+user = User.create(username: 'gmpalaganas', password: '1234', role: 'regular')
+person = Person.create(user_id: 3,first_name: 'Genesis', last_name: 'Palaganas', mid_name: 'Martinez', address: 'UP Diliman', contact_num: '09888888888', email:'gen_mart95@yahoo.com')
+
+user = User.create(username: 'ddhostallero', password: '1234', role: 'regular')
+person = Person.create(user_id: 4,first_name: 'David', last_name: 'Hostallero', mid_name: 'D', address: 'UP Diliman', contact_num: '09777777777', email:'ddhostallero@gmail.com')

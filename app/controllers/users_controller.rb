@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+	def show
+		@user = User.find(params[:id])
+
+		if @user
+			@person = Person.find_by(user_id: @user.id)
+			@comments = Comment.where(user_id: @user.id)
+		else
+			redirect_to :root
+		end
+	end
+
 	def new
 		
 	end
@@ -62,7 +73,7 @@ class UsersController < ApplicationController
       redirect_to :root
     else
       flash[:error] = "Invalid username or password."
-      redirect_to sign_in_users_path
+      redirect_to login_users_path
     end
   end
 
