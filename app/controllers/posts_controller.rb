@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post= Post.find(params[:id])
+    @post= Post.find_by(poster_id: params[:poster_id])
     dof = @post.date_of_flight.to_s.split('-')
     @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
   end
@@ -26,21 +26,25 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @person = Person.find(@post.poster_id)
-    @person_name = @person.first_name + " " + @person.mid_name + " " + @person.last_name 
-    dof = @post.date_of_flight.to_s.split('-')
-    @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
+    @user = User.find(@post.poster_id)
   end
 
   def create
     @post = Post.new(post_params)
     @post.poster_id = current_user.id
-    @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y')
+    @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y %I:%M %P')
+    @post.is_active = true
     if @post.save 
       redirect_to @post
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:poster_id]).destroy
+    redirect_to @user
   end
 
   def search_results
@@ -51,11 +55,12 @@ class PostsController < ApplicationController
   
   private
     def post_params
-      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :category, :details, :ticket_id)
+      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :category, :flight_number, :is_active, :origin, :destination )
+
     end
 
     def post_update_params
-      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :category, :ticket_id, :is_active)
+      params.require(:post).permit(:weight, :date_of_flight, :details, :category, :flight_number, :is_active, :origin, :destination )
     end
     
 end

@@ -2,7 +2,7 @@
 <div class="post-ad">
 <h2 class='post-name'>
 	<span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
-	<%= @person_name %>
+	<%= Person.find_by(user_id: @user.id).fullname %>
 </h2>
 	
 <div class='post-content'>
@@ -10,8 +10,10 @@
   <table class="table">
   	<tr><td>
   		<strong> Weight: </strong> <%= @post.weight %> kgs <br>
-  		<strong> Flight Schedule: </strong> <%= @dof_str %> <br>
-  		<strong> Ticket ID: </strong> <%= @post.ticket_id %>
+  		<strong> Origin: </strong> <%= @post.origin %> <br>
+  		<strong> Destination: </strong> <%= @post.destination %>  <br>
+  		<strong> Flight Schedule: </strong> <%= @post.date_of_flight.strftime("%b %d, %Y, %I:%M %P") %> <br>
+  		<strong> Flight Number: </strong> <%= @post.flight_number %>
   	</td></tr>
   	<tr>
   		<td>
@@ -23,17 +25,30 @@
 
 
   <br>
+<!-- <<<<<<< HEAD -->
   <%= render 'bids/list' %>
 
+<!-- ======= -->
+  
+  <% if @post.is_active %>
+<!-- >>>>>>> a4730dbef1c4b1b84705fc1eaf9ac117d24d7484 -->
   <% if current_user.id != @post.poster_id %>
   
     <p> 
     <%= render 'bids/form' %>
-     </p>
-     <br>
+    </p>
+    <br>
 
   <% end %>
 
+<!-- <<<<<<< HEAD -->
   
-</div>
+<!-- ======= -->
+  <%#= render 'bids/list' %>
+<% else %>
+
+  <strong>This offer is no longer available</strong>
+
+<% end %>
+<!-- >>>>>>> a4730dbef1c4b1b84705fc1eaf9ac117d24d7484 -->
 </div>
