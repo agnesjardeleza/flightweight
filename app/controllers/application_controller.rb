@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  helper :all
   helper_method :current_user, :current_person
 
    def set_cache_buster
@@ -16,6 +17,6 @@ class ApplicationController < ActionController::Base
   end 
 
   def current_person
-    @current_person = Person.find_by_user_id(current_user.id)
+    @current_person = Person.find_by(user_id: current_user.id)
   end 
 end

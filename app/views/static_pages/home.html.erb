@@ -1,3 +1,8 @@
 <h1>Home</h1>
-
-<%= current_person.fullname %>
+<% if current_user %>
+	<% if current_user.role == 'admin' %>
+		Super System Administrator
+	<% else %>
+		<%= current_person.fullname %>
+	<% end %>
+<% end %>
