@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150424145742) do
     t.text     "details"
     t.string   "category"
     t.string   "ticket_id"
+    t.boolean  "is_active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

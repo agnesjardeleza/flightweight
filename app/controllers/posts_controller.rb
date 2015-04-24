@@ -12,7 +12,6 @@ class PostsController < ApplicationController
     @post= Post.find(params[:id])
     dof = @post.date_of_flight.to_s.split('-')
     @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
-
   end
 
   def update
@@ -31,7 +30,6 @@ class PostsController < ApplicationController
     @person_name = @person.first_name + " " + @person.mid_name + " " + @person.last_name 
     dof = @post.date_of_flight.to_s.split('-')
     @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
-
   end
 
   def create
@@ -56,12 +54,8 @@ class PostsController < ApplicationController
       params.require(:post).permit(:poster_id, :weight, :date_of_flight, :category, :details, :ticket_id)
     end
 
+    def post_update_params
       params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :category, :ticket_id, :is_active)
     end
-
-    def post_update_params
-      params.require(:post).permit(:weight, :date_of_flight, :details, :ticket_id, :is_active)
-    end
-
-
+    
 end
