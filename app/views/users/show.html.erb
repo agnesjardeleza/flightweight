@@ -17,7 +17,20 @@ E-mail Address: <%= @person.email %><br>
 <h2> Comments: </h2>
 
 <% if @comments.length > 0 %>
-
+	<% @comments.each do |x| %>
+		by <%= User.find(x.commenter_id).username %> on
+		<%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %>
+			<% if x.commenter_id == current_user.id %>
+			 | <%= link_to 'Edit', edit_comment_path(id: x.id) %>
+			 | <%= link_to 'Delete', comment_path(user_id: @user.id, id: x.id), method: :delete%><br>
+			<% end %>
+		<%= x.comment %>
+	<% end %>
 <% else %>
 	There are no comments available for this user.
+<% end %>
+<br>
+<br>
+<% if current_user.id !=  @user.id %>
+	<%= link_to 'Add Comment', new_comment_path(user_id: @user.id) %>
 <% end %>

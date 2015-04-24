@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :weight
       t.date   :date_of_flight
       t.text    :details
+      t.integer :category
       t.string :category
       t.string  :ticket_id
        
