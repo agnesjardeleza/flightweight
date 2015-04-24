@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20150424145742) do
   create_table "posts", force: true do |t|
     t.integer  "poster_id"
     t.integer  "weight"
-    t.date     "date_of_flight"
+    t.datetime "date_of_flight"
     t.text     "details"
     t.string   "category"
     t.string   "flight_number"
