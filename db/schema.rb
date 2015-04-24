@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(version: 20150424145742) do
   end
 
   create_table "people", force: true do |t|
+    t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "mid_init"
+    t.string   "mid_name"
     t.date     "dob"
     t.string   "address"
     t.string   "contact_num"
@@ -71,7 +72,8 @@ ActiveRecord::Schema.define(version: 20150424145742) do
 
   create_table "users", force: true do |t|
     t.string   "username"
-    t.string   "password"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.string   "role"
     t.datetime "created_at"
     t.datetime "updated_at"
