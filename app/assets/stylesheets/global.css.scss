@@ -73,9 +73,19 @@
     box-shadow: none;
 }
 
+.navbar-default .navbar-nav > li > a{
+   color: #eeeeee!important;
+   text-decoration: none;
+}
+
 .carousel-inner{
   /*width:100%;*/
   max-width: 400px;
   max-height: 300px !important;
 }
+
+.color-change {
+  color: #eeeeee!important;
+}
+
 
