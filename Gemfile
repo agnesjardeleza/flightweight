@@ -43,3 +43,7 @@ gem 'rb-readline'
 gem 'bcrypt-ruby', :require=>'bcrypt'
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
+# gem 'bootstrap-datetimepicker-rails'
+
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
