@@ -2,7 +2,7 @@ class CreateTransactions < ActiveRecord::Migration
   def change
     create_table :transactions do |t|
       
-      t.date    :date
+      t.date   :date
       t.integer :poster
       t.integer :bidder
       t.integer :post_id
