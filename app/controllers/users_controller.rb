@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 			@person = Person.new(person_params)
 			if @person.save
 				flash[:notice] = "Successfully Created Account!"
-				redirect_to :login_users_path
+				redirect_to login_users_path
 			else
 				flash.now[:error] = @person.errors.full_messages.first
 				render 'users/new'
