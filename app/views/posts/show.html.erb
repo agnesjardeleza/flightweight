@@ -1,0 +1,31 @@
+<p>
+  <strong> <%= @person_name %> </strong>
+  <br>
+  
+  <strong> Weight </strong>
+  <p><%= @post.weight %></p>
+
+  <strong> Details </strong>
+  <p><%= @post.details %></p>
+
+  <strong> Flight Schedule </strong>
+  <p><%= @dof_str %></p>
+
+  <strong> Ticket ID </strong>
+  <p><%= @post.ticket_id %></p>
+
+
+  </p>
+  <br>
+  
+  <% if current_user.id != @post.poster_id %>
+  
+    <p> 
+    <strong> Add Bid </strong>
+    <%= render 'bids/form' %>
+     </p>
+     <br>
+
+  <% end %>
+
+  <%= render 'bids/list' %>
