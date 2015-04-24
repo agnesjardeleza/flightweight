@@ -1,0 +1,20 @@
+
+<strong>Bids</strong>
+
+<% Bid.where(post_id: @post.id).each do |b| %>
+  
+  <div>
+    <strong>Bidder: </strong> <%= Person.find(b.bidder_id).fullname %> <br>
+    <strong>Weight: </strong> <%= b.weight_to_be_used %> <br> 
+    <strong>Ticket ID: </strong> <%= b.ticket_id %> <br>
+    <strong>Details: </strong> 
+    <p>
+    <%= b.details %>
+    </p>
+
+    <% if @post.poster_id == current_user.id %>
+      <%= render 'transactions/form' , b_id: b.id  %> 
+    <% end %>
+  </div>
+
+<% end %>
