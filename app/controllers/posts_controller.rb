@@ -24,13 +24,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @person = Person.find(@post.poster_id)
+    @person_name = @person.first_name + " " + @person.mid_name + " " + @person.last_name 
   end
 
   def create
     @post = Post.new(post_params)
-
+    @post.poster_id = current_user.id
     if @post.save 
-      redirec_to @post
+      redirect_to @post
     else
       render 'new'
     end
