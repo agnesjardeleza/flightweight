@@ -5,7 +5,7 @@ class BidsController < ApplicationController
   end
   
   def index
-    @bid = Bid.all
+    @bids = Bid.all
   end
 
   def edit
