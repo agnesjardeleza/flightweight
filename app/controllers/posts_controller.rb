@@ -31,6 +31,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.poster_id = current_user.id
+    @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y')
     if @post.save 
       redirect_to @post
     else
