@@ -17,10 +17,35 @@
 
 	<%= hidden_field :user, :role, :value=>'admin'%>
 
+	<div>
 	<%= label :person, 'First Name: ' %>
 	<%= text_field :person, :first_name %>
+	</div>
 
-	
+	<div>
+	<%= label :person, 'Last Name: ' %>
+	<%= text_field :person, :last_name %>
+	</div>
+
+	<div>
+	<%= label :person, 'Middle Name: ' %>
+	<%= text_field :person, :mid_name %>
+	</div>
+
+	<div>
+	<%= label :person, 'Address: ' %>
+	<%= text_field :person, :address %>
+	</div>
+
+	<div>
+	<%= label :person, 'Contact Number: ' %>
+	<%= text_field :person, :contact_num %>
+	</div>
+
+	<div>
+	<%= label :person, 'E-mail: ' %>
+	<%= text_field :person, :email %>
+	</div>
 
 	<%= button_tag 'Create Account', :type=>'submit' %>
 <% end %>
