@@ -10,6 +10,9 @@ class PostsController < ApplicationController
 
   def edit
     @post= Post.find(params[:id])
+    dof = @post.date_of_flight.to_s.split('-')
+    @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
+
   end
 
   def update
@@ -26,11 +29,15 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @person = Person.find(@post.poster_id)
     @person_name = @person.first_name + " " + @person.mid_name + " " + @person.last_name 
+    dof = @post.date_of_flight.to_s.split('-')
+    @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
+
   end
 
   def create
     @post = Post.new(post_params)
     @post.poster_id = current_user.id
+    @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y')
     if @post.save 
       redirect_to @post
     else
@@ -38,14 +45,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def search_results
+    @flight_number = params[:flight_number]
+    @posts = Post.where(@flight_number)
+  end
+
   
   private
     def post_params
-      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details)
+      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :ticket_id)
     end
 
     def post_update_params
-      params.require(:post).permit(:weight, :date_of_flight, :details)
+      params.require(:post).permit(:weight, :date_of_flight, :details, :ticket_id)
     end
 
 

@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
 
+	def show
+		@user = User.find(params[:id])
+
+		if @user
+			@person = Person.find_by(user_id: @user.id)
+			@posts = Post.where(poster_id: @user.id)
+			@comments = Comment.where(user_id: @user.id)
+		else
+			redirect_to :root
+		end
+	end
+
 	def new
 		
 	end
