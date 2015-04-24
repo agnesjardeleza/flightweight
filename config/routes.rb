@@ -15,12 +15,17 @@ Rails.application.routes.draw do
 
 
   resources :comments
-  resources :posts
+  resources :posts do
+    collection do
+      get 'search_results' => 'posts#search_results'
+    end
+  end
   resources :transactions
   resources :categories
   resources :bids
 
   get 'searches/search_username' => 'searches#search_username'
+  get 'searches/search_flight_number'=> 'searches#search_flight_number'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

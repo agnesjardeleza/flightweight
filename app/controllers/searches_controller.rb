@@ -10,4 +10,8 @@ class SearchesController < ApplicationController
 		end
 	end
 
+	def search_flight_number
+		redirect_to search_results_posts_path(flight_number: params[:flight_number])
+	end
+
 end

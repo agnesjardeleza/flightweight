@@ -45,6 +45,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def search_results
+    @flight_number = params[:flight_number]
+    @posts = Post.where(@flight_number)
+  end
+
   
   private
     def post_params
