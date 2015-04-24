@@ -42,3 +42,4 @@ gem 'mysql2'
 gem 'rb-readline'
 
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
