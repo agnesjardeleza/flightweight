@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
 		if @user
 			@person = Person.find_by(user_id: @user.id)
+			@posts = Post.where(poster_id: @user.id)
 			@comments = Comment.where(user_id: @user.id)
 		else
 			redirect_to :root
