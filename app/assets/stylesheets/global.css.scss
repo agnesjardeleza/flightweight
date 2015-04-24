@@ -2,6 +2,7 @@
 .navbar-default{
 	padding-left: 70px;
 	padding-right: 70px;
+	border-bottom: transparent;
 }
 
 .nav > .btn{
@@ -46,7 +47,8 @@
 
 
 .navbar-brand .img { 
-    max-width: 70%; 
+    max-height: 90%;
+    max-width: 100%; 
     overflow: visible;
     padding-top: 0;
     padding-bottom: 0; 
@@ -77,7 +79,10 @@
    color: #eeeeee!important;
    text-decoration: none;
 }
-
+.navbar-default .go > li:hover{
+  text-decoration: none;
+   background-color: #0382a6
+}
 .carousel-inner{
   /*width:100%;*/
   max-width: 400px;
