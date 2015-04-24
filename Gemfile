@@ -41,3 +41,4 @@ gem 'spring',        group: :development
 gem 'mysql2'
 gem 'rb-readline'
 
+gem 'bootstrap-sass'
