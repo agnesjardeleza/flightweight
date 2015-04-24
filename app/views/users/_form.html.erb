@@ -1,7 +1,7 @@
 <%= form_tag :role=>'form', :action=>'create' do %>
 
 	<div class="row">
-  <div class="col-md-8"><br>  
+  <div class="col-md-4"><br>  
 	<%#= label :user, 'Username: ' %>
 	<%= text_field :user, :username, :value=>@username, :placeholder=>"Username", class: "form-control" %>
 	<!-- </div> -->
@@ -19,14 +19,28 @@
 	<!-- </div> -->
 	<br>
 
-	<%= hidden_field :user, :role, :value=>'admin'%>
+	<%= hidden_field :user, :role, :value=>'regular' %>
 
 	<!-- <div class="col-md-8"><br>   -->
 	<%#= label :person, 'First Name: ' %>
+	<!-- <div class="form-inline"> -->
 	<%= text_field :person, :first_name, :placeholder=>'First name',class: "form-control" %>
+	<br>
+	<%= text_field :person, :mid_name, :placeholder=>'Middle name',class: "form-control" %>
+	<br>
+	<%= text_field :person, :last_name, :placeholder=>'Last name',class: "form-control" %>
 	<!-- </div> -->
 	<br>
 	
+	<%= text_field :person, :address, :placeholder=>'Address',class: "form-control" %>
+	<br>
+
+	<%= text_field :person, :contact_num, :placeholder=>'Contact nuber',class: "form-control" %>
+	<br>
+	
+	<%= text_field :person, :email, :placeholder=>'Email',class: "form-control" %>
+	<br>
+
 	<div class="pull-right"><br> 
 	<%= button_tag 'Create Account', :type=>'submit', :class=>'btn btn-primary'%>
 	</div>
