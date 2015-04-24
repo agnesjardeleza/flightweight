@@ -1,18 +1,35 @@
+
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<center>
+<img src="<%= asset_path 'Logo1.png'%>"/>
+<h2>Sign in</h2>
+</center>
+
 <% if current_user %>
 		Currently logged in as <%= current_user.username %>.
 		Please logout before logging in as a different user.
 <% else %>
 	<%= form_for @user, :role=>'form', :as=>:user, :url=>login_users_path(@user) do |f| %>
-			<div>
-			<%= f.label 'Username: ' %>
-			<%= f.text_field :username %>
-			</div>
 
-			<div>
-			<%= f.label 'Password: ' %>		
-			<%= f.password_field :password %>
-			</div>
+			<div class="form-group">
+		    <div class="input-group">
+		      <%= f.text_field :username,class: "form-control", placeholder: "Username" %>
+		      <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+		    </div>
+		  </div>
 
-			<%= f.submit 'Login' %>
+			<div class="form-group">
+		    <div class="input-group">
+		      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
+		      <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+		    </div>
+		  </div>
+
+			<div class="form-group">
+		    <%= f.submit "Sign in", class: "btn btn-block btn-primary" %>
+		  </div>
 	<% end %>
 <% end %>
+</div>

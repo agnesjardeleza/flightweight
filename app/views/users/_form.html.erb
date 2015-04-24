@@ -1,8 +1,11 @@
 <%= form_tag :role=>'form', :action=>'create' do %>
 
 	<div class="row">
+	<!-- <div class="col-md-4"></div> -->
   <div class="col-md-4"><br>  
 	<%#= label :user, 'Username: ' %>
+
+	<h4>Account Information</h4>
 	<%= text_field :user, :username, :value=>@username, :placeholder=>"Username", class: "form-control" %>
 	<!-- </div> -->
 	<br>
@@ -24,6 +27,7 @@
 	<!-- <div class="col-md-8"><br>   -->
 	<%#= label :person, 'First Name: ' %>
 	<!-- <div class="form-inline"> -->
+	<h4>Personal Details</h4>
 	<%= text_field :person, :first_name, :placeholder=>'First name',class: "form-control" %>
 	<br>
 	<%= text_field :person, :mid_name, :placeholder=>'Middle name',class: "form-control" %>
@@ -35,7 +39,7 @@
 	<%= text_field :person, :address, :placeholder=>'Address',class: "form-control" %>
 	<br>
 
-	<%= text_field :person, :contact_num, :placeholder=>'Contact nuber',class: "form-control" %>
+	<%= text_field :person, :contact_num, :placeholder=>'Contact number',class: "form-control" %>
 	<br>
 	
 	<%= text_field :person, :email, :placeholder=>'Email',class: "form-control" %>
