@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default color-change">
+<nav class="navbar navbar-default color-change navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,14 +8,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= image_tag('Logo1-white.png', :class => "img", :alt => "Brand") %></a>
+      <a class="navbar-brand" href="/asf"><%= image_tag('Logo1-white.png', :class => "img", :alt => "Brand") %></a>
     </div>
      
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Home', root_path %></a></li>
+      <ul class="nav navbar-nav go">
+        <li><%= link_to 'Home', root_path %></a></li>
 
          <% if current_user %>
    
@@ -56,11 +56,11 @@
     <% end %> 
      
 
-      <div class="nav navbar-nav navbar-right">
-        <% if current_user %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><% if current_user %>
         <p class="navbar-text color-change">Logged in as <strong><%= current_user.username %></strong></p>
-    	  <% end %>
-    	  <div class= "navbar-right">
+    	  <% end %></li>
+    	  <li class= "navbar-right">
         <% if current_user %>
       		<!--<button type="submit" class="btn btn-default">Logout</button>-->
         <%= button_to 'Logout', logout_users_path, method: :post, class: "btn btn-default navbar-btn outline", type: "button"%>
@@ -68,8 +68,8 @@
           <!--<button type="submit" class="btn btn-default">Login</button>-->
         <%= button_to 'Login', login_users_path, method: :get, class: "btn btn-default navbar-btn outline", type: "button"%>
         <% end %>
-        </div>
-      </div>
+        </div></li>
+      </ul>
 
       
 

@@ -1,24 +1,26 @@
-
 <%= form_for :post, url: posts_path do |f| %>
+  <div class="row">
+  <!-- <div class="col-md-4"></div> -->
+  <div class="col-md-8"><br>  
   
   <p>
     <%= f.label :weight %><br>
-    <%= f.number_field :weight %>
+    <%= f.number_field :weight, class: "form-control" %>
   </p>
  
   <p>
     <%= f.label :date_of_flight %><br>
-    <%= text_field_tag :date, nil, :value => @dof_str, :data => {:provide => "datepicker"}, class: 'form-control' %>
-    
+    <%= text_field_tag :date, nil, class: 'form-control', id:'datetimepicker4' %>
   </p>
 
   <p>
     <%= f.label :details %><br>
-    <%= f.text_area :details %>
+    <%= f.text_area(:details, size: "50x5", class: "form-control")%>
   </p>
 
    <p>
    <%= f.label :category %><br>
+<<<<<<< HEAD
    <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']])  %>
   </p>
   
@@ -27,15 +29,26 @@
     <%= f.text_field :ticket_id %>
   </p>
 
+  <%= f.hidden_field :is_active, true %>
+
 
  <p>
     <%= f.submit %>
   </p>
+=======
+   <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']], {class: 'form-control'})  %>
+</p>
+>>>>>>> ae0e5395d473f7e02f421c7d0a2a76d7faac2323
  
+ <div class="pull-right"><br> 
+  <%= button_tag 'Submit', :type=>'submit', :class=>'btn btn-primary'%>
+  </div>
+ 
+ </div></div>
 <% end %>
- 
+
 <script type="text/javascript">
-  $(document).ready(function(){
-    $('.datepicker').datepicker();
-  });
-</script>
+      $(function () {
+          $('#datetimepicker4').datetimepicker();
+      });
+  </script>
