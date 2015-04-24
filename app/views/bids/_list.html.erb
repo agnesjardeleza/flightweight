@@ -11,10 +11,9 @@
     <p>
     <%= b.details %>
     </p>
+ 
+  <%= link_to 'Approve', bid_path %>
 
-    <% if @post.poster_id == current_user.id %>
-      <%= render 'transactions/form' , b_id: b.id  %> 
-    <% end %>
   </div>
 
 <% end %>

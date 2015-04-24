@@ -13,15 +13,15 @@ class TransactionsController < ApplicationController
   end
   
   def update
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.find(paramas[:id])
 
-    person = Person.find(@transaction.poster)
+    post = Person.find(@transaction.poster)
     if @transaction.save
-      person.is_active = false
-      person.save
-      redirect_to person
+      post.is_active = false
+      post.save
+      redirect_to post
     else
-      redirect_to person
+      redirect_to post
     end
   end
   
@@ -32,15 +32,21 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new
+    @transaction.poster = params[:poster]
+    @transaction.bidder = params[:bidder]
+    @transaction.post_id = params[:post_id]
+    @transaction.bid_id = params[:bid_id]
+    @transaction.date = params[:date]
+    
 
-    person = Person.find(@transaction.poster)
+    post = Post.find(@transaction.post_id)
     if @transaction.save
-      person.is_active = false
-      person.save
-      redirect_to person
+      post.is_active = false
+      post.save
+      redirect_to post
     else
-      redirect_to person
+      redirect_to post
     end
   end
   
