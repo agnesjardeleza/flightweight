@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-      get 'login' => 'users#login'
-      post 'login' => 'users#signin'
+      get 'login' => 'users#log_in'
+      post 'login' => 'users#sign_in'
     end
   end
 

@@ -17,5 +17,10 @@
 
 	<%= hidden_field :user, :role, :value=>'admin'%>
 
+	<%= label :person, 'First Name: ' %>
+	<%= text_field :person, :first_name %>
+
+	
+
 	<%= button_tag 'Create Account', :type=>'submit' %>
 <% end %>
