@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       redirect_to :root
     else
       flash[:error] = "Invalid username or password."
-      redirect_to sign_in_users_path
+      redirect_to login_users_path
     end
   end
 
