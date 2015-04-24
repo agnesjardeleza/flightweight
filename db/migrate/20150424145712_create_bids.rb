@@ -6,7 +6,7 @@ class CreateBids < ActiveRecord::Migration
       t.integer :post_id
       t.integer :weight_to_be_used
       t.text    :details
-      t.string  :ticket_id
+      t.string  :flight_number
 
 
       t.timestamps

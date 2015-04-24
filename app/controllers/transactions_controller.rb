@@ -11,16 +11,21 @@ class TransactionsController < ApplicationController
   def edit
     @transaction= Transaction.find(params[:id])
   end
-
+  
   def update
-    @transaction =  Transaction.find(params[:id])
+    @transaction = Transaction.new(transaction_params)
 
-    if @transaction.update(transaction_params)
-      redirect_to @transaction
+    person = Person.find(@transaction.poster)
+    if @transaction.save
+      person.is_active = false
+      person.save
+      redirect_to person
     else
-      render 'edit'
+      redirect_to person
     end
   end
+  
+
 
   def show
     @transaction = Transaction.find(params[:id])
@@ -29,13 +34,13 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
 
+    person = Person.find(@transaction.poster)
     if @transaction.save
-      person = Person.find(@transaction.poster)
       person.is_active = false
       person.save
       redirect_to person
     else
-      render 'new'
+      redirect_to person
     end
   end
   

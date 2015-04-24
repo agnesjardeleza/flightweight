@@ -20,11 +20,12 @@
 
    <p>
    <%= f.label 'Category: ' %>
-   <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']], {class: 'form-control'})  %>  </p>
+   <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']], {class: 'form-control'})  %>  
+   </p>
   
   <p>
-    <%= f.label 'Flight Number: ' %>
-    <%= f.text_field :ticket_id %>
+    <%= f.label 'Flight Number: '%>
+    <%= f.text_field :flight_number %>
   </p>
 
   <%= f.hidden_field :is_active, value: true %>
@@ -40,4 +41,4 @@
       $(function () {
           $('#datetimepicker4').datetimepicker();
       });
-  </script>
+</script>
