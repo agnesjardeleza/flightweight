@@ -21,7 +21,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Register', new_user_path %></li>
-            <li><%= link_to 'Login', log_in_users_path %></li>
+            <li><%= link_to 'Login', login_users_path %></li>
             <li class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li class="divider"></li>
@@ -35,9 +35,20 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+
       <div class="nav navbar-nav navbar-right">
-      		<button type="submit" class="btn btn-default">Login</button> 
+        <% if current_user %>
+      		<!--<button type="submit" class="btn btn-default">Logout</button>-->
+          <%= button_to 'Logout', logout_users_path, method: :post, class: "btn btn-default"%>
+        <% else %>
+          <!--<button type="submit" class="btn btn-default">Login</button>-->
+          <%= button_to 'Login', login_users_path, method: :get, class: "btn btn-default"%>
+        <% end %>
       </div>
+
+      <div class="nav navbar-nav navbar-right">
+        Logged in as <%= current_user.username %>
+      </div>     
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

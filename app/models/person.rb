@@ -7,4 +7,9 @@ class Person < ActiveRecord::Base
 	validates_presence_of :contact_num
 	validates_presence_of :email
 
+
+	def fullname
+		last_name + ", " + first_name + ", " + mid_name 
+	end
+
 end

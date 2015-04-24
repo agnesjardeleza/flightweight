@@ -1,0 +1,18 @@
+<% if current_user %>
+		Currently logged in as <%= current_user.username %>.
+		Please logout before logging in as a different user.
+<% else %>
+	<%= form_for @user, :role=>'form', :as=>:user, :url=>login_users_path(@user) do |f| %>
+			<div>
+			<%= f.label 'Username: ' %>
+			<%= f.text_field :username %>
+			</div>
+
+			<div>
+			<%= f.label 'Password: ' %>		
+			<%= f.password_field :password %>
+			</div>
+
+			<%= f.submit 'Login' %>
+	<% end %>
+<% end %>

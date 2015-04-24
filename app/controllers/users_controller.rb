@@ -51,13 +51,18 @@ class UsersController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      @user = (current_user.role == 'admin')? User.where(user_id:current_user.id).first : nil
+      @user = (current_user.role == 'admin')? User.find(current_user.id) : nil
       redirect_to :root
     else
       flash[:error] = "Invalid username or password."
       redirect_to sign_in_users_path
     end
   end
+
+	def logout
+		session[:user_id] = nil
+		redirect_to :root		
+	end
 
 	private
 		def user_params
