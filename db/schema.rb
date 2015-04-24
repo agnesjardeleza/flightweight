@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 20150424145742) do
     t.string   "category"
     t.string   "flight_number"
     t.boolean  "is_active"
+    t.string   "origin"
+    t.string   "destination"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

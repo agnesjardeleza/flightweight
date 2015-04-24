@@ -10,6 +10,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :category
       t.string  :flight_number
       t.boolean :is_active
+      t.string :origin
+      t.string :destination
        
       t.timestamps
     end
