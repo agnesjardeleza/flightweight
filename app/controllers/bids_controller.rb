@@ -40,11 +40,11 @@ class BidsController < ApplicationController
   
   private
     def bid_params
-      params.require(:bid).permit(:post_id,:bidder_id, :weight_to_be_used, :details)
+      params.require(:bid).permit(:post_id,:bidder_id, :weight_to_be_used, :details, :flight_number)
     end
 
     def bid_update_params
-      params.require(:bid).permit(:weight_to_be_used, :details)
+      params.require(:bid).permit(:weight_to_be_used, :details, :flight_number)
     end
 
 

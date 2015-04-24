@@ -8,7 +8,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text    :details
       t.integer :category
       t.string :category
-      t.string  :ticket_id
+      t.string  :flight_number
       t.boolean :is_active
        
       t.timestamps
