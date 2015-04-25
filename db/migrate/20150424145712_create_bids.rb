@@ -4,7 +4,7 @@ class CreateBids < ActiveRecord::Migration
       
       t.integer :bidder_id
       t.integer :post_id
-      t.integer :weight_to_be_used, default: 0
+      t.integer :weight, default: 0
       t.text    :details
       t.string  :flight_number
 
