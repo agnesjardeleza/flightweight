@@ -9,7 +9,7 @@
 
 <%= render 'layouts/flash' %>
 <% if current_user %>
-		Currently logged in as <%= current_user.username %>.
+		Currently logged in as <strong><%= current_user.username %></strong>.
 		Please logout before logging in as a different user.
 <% else %>
 	<%= form_for @user, :role=>'form', :as=>:user, :url=>login_users_path(@user) do |f| %>
