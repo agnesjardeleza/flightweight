@@ -1,5 +1,10 @@
-<div>
-    <strong>Bidder: </strong> <%= Person.find(@bid.bidder_id).fullname %> <br>
+
+<h2 class='profile-name'>
+    <span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
+    <%= Person.find(@bid.bidder_id).fullname %>
+</h2>
+
+<div class="col-md-4">
     <strong>Weight: </strong> <%= @bid.weight %> <br> 
     <strong>Flight Number: </strong> <%= @bid.flight_number %> <br>
     <strong>Details: </strong> 
@@ -11,5 +16,4 @@
       <%= render 'transactions/form' %>
     <% end %>
  
-  </div>
-
+</div>

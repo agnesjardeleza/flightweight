@@ -57,7 +57,7 @@
       <%= render 'bids/form' %>
        </p>
        <br>
-    <% else %>
+    <% elsif !current_user%>
         <div class="col-md-8">
           <em><%= link_to "Login", login_users_path %> or 
           <%= link_to "Register",new_user_path %> to proceed with the bidding</em>
@@ -66,7 +66,9 @@
   
 <% else %>
   <% bid = Bid.find(Transaction.where(post_id: @post.id).first.bid_id) %>
+<div class="col-md-8">
 <strong>This offer is no longer available</strong>
 <p> This offer has been approved to <%= Person.find(bid.bidder_id).fullname %> </p>
+</div>
 <% end %>
 </div>
