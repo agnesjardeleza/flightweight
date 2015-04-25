@@ -73,17 +73,16 @@ E-mail Address: <%= @person.email %><br>
       </div>
     </div>
   </li>
-
 	<% end %>
-	</ul>
-	</div>
+</ul>
+</div>	
 <% else %>
 	There are no comments available for this user.
-<% end %>
+<% end %>	
+
 <br>
 <br>
 <% if current_user.id !=  @user.id %>
 	<% @comment = Comment.new %>
 	<%= render 'comments/form' %>
-	<%#= link_to 'Add Comment', new_comment_path(user_id: @user.id) %>
 <% end %>
