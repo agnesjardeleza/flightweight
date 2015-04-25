@@ -16,23 +16,25 @@ E-mail Address: <%= @person.email %><br>
 	<% @posts.reverse.each do |x| %>
 
 		<tr><td>
-
-		Category: <%= x.category %> | 
-		posted by  
-		<% if User.find(x.poster_id).username == current_user.username %>
-			you
-		<% else %>
-			<%= User.find(x.poster_id).username%>
-		<% end %>
-		on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %><br>
-		Date of Flight: <%= x.date_of_flight.to_time.strftime("%I:%M %P")%><br>
+		<h4><%= x.origin %> to <%= x.destination %></h4>
+		<small>
+			Category: <%= x.category %> | 
+			posted by  
+			<% if User.find(x.poster_id).username == current_user.username %>
+				you
+			<% else %>
+				<%= User.find(x.poster_id).username%>
+			<% end %>
+			on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %><br>
+		</small>
+		Date of Flight: <%= x.date_of_flight.to_time.strftime("%b %d, %Y, %I:%M %P")%><br>
 		<% if x.category == 'request' %>
 			Weight Needed: 		
 		<% else %>
 			Weight Offered: 
 		<% end %>
 		
-		<%= x.weight %><br>
+		<%= x.weight %> kgs<br>
 		<%= link_to 'View', post_path(x) %> 
 		<% if current_user == User.find(x.poster_id) %>| 
 			<%= link_to 'Edit', edit_post_path(id: x.id) %> | 
