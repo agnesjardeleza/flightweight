@@ -27,6 +27,7 @@ class BidsController < ApplicationController
   end
 
   def create
+    @post_id
     @bid = Bid.new(bid_params)
     @bid.bidder_id = current_user.id
     @bid.post_id = params[:post_id]
@@ -34,7 +35,8 @@ class BidsController < ApplicationController
     if @bid.save 
       redirect_to Post.find(params[:post_id]) 
     else
-      render 'new'
+      flash[:error] = @bid.errors.full_messages.first
+      redirect_to post_path(id: params[:post_id])
     end
   end
   

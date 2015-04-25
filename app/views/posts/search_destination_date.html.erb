@@ -1,0 +1,17 @@
+<h1>Search Results</h1>
+
+<% if @posts.length > 0 %>
+	<% @posts.each do |x| %>  
+		<%= User.find(x.poster_id).username %>
+	  posted on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %> <br>
+	  Category: <%= x.category %>
+		Date of Flight: <%= x.date_of_flight.to_time.strftime("%b %d, %Y, %I:%M %P")%><br>
+			<% if x.category == 'request' %>
+				Weight Needed: 		
+			<% else %>
+				Weight Offered: 
+			<% end %>
+		<%= x.weight %> kgs<br>
+  <% end %>
+<% else %> 
+  No flight matches with given origin <%= @origin %>, destination <%= @destination %>, and or date <%= @date %><% end %>
