@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post= Post.find_by(poster_id: params[:poster_id])
+    @post= Post.find(params[:id])
     dof = @post.date_of_flight.to_s.split('-')
     @dof_str = dof[1] + "/" + dof[2] + "/" + dof[0]
   end
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.poster_id = current_user.id
+   # @post.poster_id = current_user.id
     @post.date_of_flight = DateTime.strptime(params[:date], '%m/%d/%Y %I:%M %P')
     @post.is_active = true
     if @post.save 
@@ -43,7 +43,7 @@ class PostsController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @post = Post.find(params[:poster_id]).destroy
+    @post = Post.find(params[:id]).destroy
     redirect_to @user
   end
 
@@ -60,7 +60,7 @@ class PostsController < ApplicationController
     end
 
     def post_update_params
-      params.require(:post).permit(:weight, :date_of_flight, :details, :category, :flight_number, :is_active, :origin, :destination )
+      params.require(:post).permit(:poster_id, :weight, :date_of_flight, :details, :category, :flight_number, :is_active, :origin, :destination )
     end
     
 end
