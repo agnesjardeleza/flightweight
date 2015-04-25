@@ -2,6 +2,19 @@
 
 <% @bids.each do |p| %>
 
+  <% post = Post.find(p.post_id) %>
+  <% if !post.is_active %>
+      
+    <% transac = Transaction.where(post_id: post.id).first %>
+
+    <% if transac.bid_id == p.id %>
+        <strong>APPROVED</strong>
+    <% else %>
+        <strong>NOT APPROVED</strong>
+    <% end %>
+
+  <% end %>
+
 <div class='post-content'>
   <div>
   <table class="table">
