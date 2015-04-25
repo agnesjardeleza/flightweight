@@ -74,14 +74,14 @@ E-mail Address: <%= @person.email %><br>
       </div>
     </div>
   </li>
-
 	<% end %>
 	</ul>
 </div>
 <div class="col-xs-12">	
 <% else %>
 	There are no comments available for this user.
-<% end %>
+<% end %>	
+
 <br>
 <br>
 <% if current_user.id !=  @user.id %>
