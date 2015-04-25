@@ -119,13 +119,13 @@ html, body {
   color:  #00a7d7;
 }
 
-.img-foot {
+/*.img-foot {
     max-width: 127.8%;
     max-height: 130%;
     overflow: visible;
     padding-top: 0;
     padding-bottom: 0; 
-}
+}*/
 
 .spread {
   max-width: 100%;
@@ -327,4 +327,28 @@ html, body {
         }
 
 }
+}
+
+.nav .navbar-nav .navbar-right li {
+  float: right;
+}
+
+.go-left {
+  float: left;
+}
+
+.go-right {
+  float: right;
+}
+.foot-er {
+  width: 100%;
+  //background: url('Footer3.png');
+  padding: 0 0;
+  overflow: hidden;
+  color: #fff;
+  position: relative;
+}
+
+.navbar-left li {
+    font-weight: bold;
 }
