@@ -14,7 +14,13 @@
   <table class="table">
   	<tr><td>
       <strong> Category: </strong> <%= @post.category %> <br>
-  		<strong> Weight: </strong> <%= @post.weight %> kgs <br>
+  		<strong> Weight
+      <% if @post.category == 'advertisement' %>
+        Offered
+      <% else %>
+        Needed
+      <% end %>
+      : </strong> <%= @post.weight %> kgs <br>
   		<strong> Origin: </strong> <%= @post.origin %> <br>
   		<strong> Destination: </strong> <%= @post.destination %>  <br>
   		<strong> Flight Schedule: </strong> <%= @post.date_of_flight.strftime("%b %d, %Y, %I:%M %P") %> <br>
