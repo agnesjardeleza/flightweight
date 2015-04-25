@@ -27,6 +27,7 @@
   </p>
 
    <p>
+
    <%= f.label 'Category: ' %>
    <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']], {class: 'form-control'})  %>  
    </p>
@@ -35,6 +36,7 @@
     <%= f.label 'Flight Number: '%>
     <%= f.text_field :flight_number %>
   </p>
+
 
   <%= f.hidden_field :is_active, value: true %>
  
