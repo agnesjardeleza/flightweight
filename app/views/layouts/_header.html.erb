@@ -8,7 +8,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="pull-left" href="/asf"><%= image_tag('Logo3-white.png', :class => "img", :alt => "Brand") %></a>
+      <%=link_to :root, class:'pull-right' do %>
+      <%= image_tag('Logo3-white.png', :class => "img", :alt => "Brand") %>
+      <% end %>
     </div>
      
 
@@ -19,14 +21,7 @@
         
          <% if current_user %>
             <li><%= link_to 'Profile',  user_path(current_user.id) %></li>
-          <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Posts <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to 'My Posts',  user_path(id: current_user.id) %></li>
-            <li><%= link_to 'Add', new_post_path %></li>
-            <li><%= link_to 'My Posts', my_posts_path %></li>
-          </ul>
-          </li>
+            <li><%= link_to 'Add Post', new_post_path %></li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Bids<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -35,25 +30,24 @@
           </li>
           
         </li>
-      <!--<form class="navbar-form navbar-left">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>-->
+
+      </ul>
 
      <%= form_tag({controller: 'searches', action: 'search_username'}, method: "get", class: 'navbar-form navbar-left') do %>
         <%= text_field_tag :username, nil, placeholder: 'Username', class: 'form-control' %>
 
         <button type ="submit" class="btn btn-default color-blue"><span class="glyphicon glyphicon-search"></span></button>
+
     <% end %>  
     
-     <% end %>
+    
+
+     <%else%>
+        <li><%= link_to 'Register',  new_user_path %></li>
+     <% end %> 
      
       </ul>
    <!-- /.navbar-collapse -->
-    
-    
     <ul class="nav navbar-nav navbar-right">
         <li><% if current_user %>
         <p class="navbar-text color-change">Logged in as <strong><%= current_user.username %></strong></p>

@@ -1,13 +1,10 @@
 <h1>Search Results</h1>
 
-
-
-
 <% if @posts.length > 0 %>
 	<ul class="timeline">
-	<% i = 0 %>
 	<% @posts.each do |x| %>
-		<% if x.category == 'advertisement' %>
+
+	    <% if x.category == 'advertisement' %>
 	    	<li>
 	    	<div class="timeline-badge">
 	    	<i class="glyphicon glyphicon-tag"></i>
@@ -35,8 +32,7 @@
 					</div>
 				</div>
 			</li>
-			<% i+=1 %>
 	<% end %> 
 <% else %>
-	No flight matches with flight number: <%= @flight_number %>
+	No flight matches
 <% end %>

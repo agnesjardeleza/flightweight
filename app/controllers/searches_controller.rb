@@ -14,4 +14,8 @@ class SearchesController < ApplicationController
 		redirect_to search_results_posts_path(flight_number: params[:flight_number])
 	end
 
+  def search_destination_date
+		redirect_to search_results_destination_posts_path(destination: params[:destination], origin: params[:origin], date: params[:date])
+  end
+
 end

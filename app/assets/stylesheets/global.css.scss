@@ -1,10 +1,7 @@
-html, body {
-  height: 100%;
-  padding-bottom: 0px;
-}
+
 .navbar-default{
-	padding-left: 70px;
-	padding-right: 70px;
+	padding-left: 0px;
+	padding-right: 30px;
 	border-bottom: transparent;
 }
 
@@ -12,11 +9,13 @@ html, body {
 	margin-top: 8px;
 }
 
+.navbar-header{
+  margin-right: 10px !important;
+}
 
 #wrapper {
-  padding-left: 235px;
+  padding-left: 250px;
   transition: all 0.4s ease 0s;
-  
 }
 
 #sidebar-wrapper {
@@ -26,7 +25,7 @@ html, body {
 	width: 250px;
 	position: fixed;
 	background-color: aliceblue;
-	padding-top: 20px;
+	padding-top: 40px;
 	padding-bottom: 10px;
 	/* border-radius: 3px; */
 	/* border: #e0e0fa 1px solid; */
@@ -40,7 +39,6 @@ html, body {
   /*width: 100%;*/
   margin-top: 50px;
   margin-left: 30px;
-  margin-bottom: 0px;
 }
 
 .sidebar-nav {
@@ -53,35 +51,37 @@ html, body {
 }
 
 
-.pull-left .img {
+.navbar-brand .img { 
+    max-height: 90%;
+    max-width: 100%; 
     overflow: visible;
     padding-top: 0;
-    padding-bottom: 10; 
+    padding-bottom: 0; 
 }
 
 .btn.outline {
-  color: #eeeeee;
+  color: #f4f4f4;
   background: none;
-  border: 2px solid #eeeeee;
+  border: 2px solid #f4f4f4;
 }
 .btn-default.outline {
-    border: 2px solid #eeeeee;
+    border: 2px solid #f4f4f4;
     color: #eeeeee;
 }
 .btn-default.outline:hover, .btn-default.outline:focus, .btn-default.outline:active, .btn-default.outline.active, .open > .dropdown-toggle.btn-default {
     color: #00a7d7;
-    border-color: #eeeeee;
-    background-color: #eeeeee;
+    border-color: #f4f4f4;
+    background-color: #f4f4f4;
 }
 .btn-default.outline:active, .btn-default.outline.active {
-    border-color: #eeeeee;
+    border-color: #f4f4f4;
     color: #00a7d7;
-    background-color: #eeeeee;
+    background-color: #f4f4f4;
     box-shadow: none;
 }
 
 .navbar-default .navbar-nav > li > a{
-   color: #eeeeee!important;
+   color: #f4f4f4!important;
    text-decoration: none;
 }
 .navbar-default .go > li:hover{
@@ -113,11 +113,12 @@ html, body {
     background-size: 50%;
 }*/
 .color-change {
-  color: #eeeeee!important;
+  color: #f4f4f4!important;
 }
 .color-blue {
   color:  #00a7d7;
 }
+
 
 /*.img-foot {
     max-width: 127.8%;
@@ -138,6 +139,7 @@ html, body {
   padding-top: 800px;
   max-width: 960px;
 
+
 .profile-name{
   border-bottom: aliceblue 1px solid;
 }
@@ -155,7 +157,7 @@ html, body {
         position: absolute;
         content: " ";
         width: 3px;
-        background-color: #eeeeee;
+        background-color: #f4f4f4;
         left: 50%;
         margin-left: -1.5px;
     }

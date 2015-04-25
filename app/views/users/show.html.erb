@@ -34,11 +34,11 @@ E-mail Address: <%= @person.email %><br>
 			Weight Offered: 
 		<% end %>
 		
-		<%= x.weight %> kgs<br>
-		<%= link_to 'View', post_path(x) %> 
-		<% if current_user == User.find(x.poster_id) %>| 
-			<%= link_to 'Edit', edit_post_path(id: x.id) %> | 
-			<%= link_to 'Delete' ,post_path(user_id: x.poster_id, id: x.id), method: :delete %>
+		<%= x.weight %> kgs<br><br>
+		<%= link_to 'View', post_path(x), class: 'btn btn-primary btn-xs' %> 
+		<% if current_user == User.find(x.poster_id) %> 
+			<%= link_to 'Edit', edit_post_path(id: x.id), class: 'btn btn-primary btn-xs btn-warning' %> 
+			<%= link_to 'Delete' ,post_path(user_id: x.poster_id, id: x.id), method: :delete, class: 'btn btn-primary btn-xs btn-danger' %>
 		<% end %>
 
 	</td></tr>
@@ -50,14 +50,15 @@ E-mail Address: <%= @person.email %><br>
 
 <h2> Comments: </h2>
 
-<div class='col-xs-12 col-md-8'>
+<div class=' col-md-8'>
+
+<% if @comments.length != 0 %>
 <ul class="timeline" style="margin-left: -600px;">
-<% if @comments.length > 0 %>
 	<% @comments.each do |x| %>
 		<li class="timeline-inverted" >
 			<div class="timeline-badge">
-    		<i class="glyphicon glyphicon-tag"></i>
-    			</div>
+    		<i class="glyphicon glyphicon-user"></i>
+    	</div>
       <div class="timeline-panel">
         <div class="timeline-heading">
           <h4 class="timeline-title"><%= User.find(x.commenter_id).username %></h4>
@@ -73,13 +74,14 @@ E-mail Address: <%= @person.email %><br>
       </div>
     </div>
   </li>
-
 	<% end %>
 	</ul>
-	</div>
+</div>
+<div class="col-xs-12">	
 <% else %>
 	There are no comments available for this user.
-<% end %>
+<% end %>	
+
 <br>
 <br>
 <% if current_user.id !=  @user.id %>
@@ -87,3 +89,4 @@ E-mail Address: <%= @person.email %><br>
 	<%= render 'comments/form' %>
 	<%#= link_to 'Add Comment', new_comment_path(user_id: @user.id) %>
 <% end %>
+</div>

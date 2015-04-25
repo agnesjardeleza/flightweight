@@ -52,6 +52,38 @@ class PostsController < ApplicationController
     @posts = Post.where(flight_number: @flight_number)
   end
 
+  def search_destination_date
+    @destination = params[:destination]
+    @origin = params[:origin]
+    @date = params[:date]
+    @posts = Post.where(id: -1)
+    post_h = Post.all
+    test = 0
+    
+    if @origin.length > 0 then
+      post_h = post_h.where(origin: @origin)
+      test += 1
+    end
+
+    if @destination.length > 0 then
+      post_h = post_h.where(destination: @destination)
+      test += 1
+    end
+
+    @date_arr = @date.to_s.split('/')
+
+    if @date_arr.length > 0 then
+        test += 1
+        post_h = post_h.where('extract(year from date_of_flight) = ?', @date_arr[2])
+        post_h = post_h.where('extract(month from date_of_flight) = ?', @date_arr[0])
+        post_h = post_h.where('extract(day from date_of_flight) = ?', @date_arr[1])
+    end
+
+    if test > 0 then
+      @posts = post_h
+    end
+  end
+  
   
   private
     def post_params

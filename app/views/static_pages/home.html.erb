@@ -1,25 +1,22 @@
-<h1>Home</h1>
+
 
 <ul class="timeline">
 <% i = 0 %>
 <% @posts.each do |x| %>
-	<% if i%2 == 0 %>
+<% if x.category == 'advertisement' %>
 	<li>
-	<% else %>
+	<div class="timeline-badge">
+	<i class="glyphicon glyphicon-tag"></i>
+<% else %>
 	<li class="timeline-inverted" >
-	<% end %>
-    
-    <% if x.category == 'advertisement' %>
-    	<div class="timeline-badge">
-    	<i class="glyphicon glyphicon-tag"></i>
-    <% else %>
-    <div class="timeline-badge warning">
-    	<i class="glyphicon glyphicon-flag"></i>
-    <% end %>
+  <div class="timeline-badge warning">
+	<i class="glyphicon glyphicon-flag"></i>
+<% end %>
     </div>
       <div class="timeline-panel">
         <div class="timeline-heading">
-          <h4 class="timeline-title">From <%=x.origin%> to <%=x.destination%></h4>
+          <h4 class="timeline-title">
+	          	<%= link_to "From #{x.origin} to #{x.destination}", x %></h4>
           <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> posted on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %> | Category: <%= x.category %></small></p>
           <div class="timeline-body">
           	Posted by: <%= User.find(x.poster_id).username %><br>

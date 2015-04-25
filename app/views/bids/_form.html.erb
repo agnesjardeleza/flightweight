@@ -1,23 +1,27 @@
 
 <div class="row">
   <div class="col-md-8 add-bid">
-  <!-- <div class="col-md-8"><br>   -->
+  <h4>Add bid</h4>
 <%= form_for :bid, url: bids_path do |f| %>
   
-  <p>
+  <div class="form-group">
     <%= f.label 'Weight: ' %>
-    <%= f.number_field :weight_to_be_used %>
+    <%= f.number_field :weight, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label 'Flight Number: ' %>
+    <%= f.text_field :flight_number, class: "form-control" %>
+  </div>
+  <!-- </div> -->
+
+    <%#= f.number_field :weight %>
   </p>
  
   <p>
     <%= f.label 'Details: ' %>
-    <%= f.text_area :details %>
+    <%= f.text_area :details, class: "form-control" %>
   </p>
  
-  <p>
-    <%= f.label 'Flight Number: ' %>
-    <%= f.text_field :flight_number %>
-  </p>
 
   <%= hidden_field_tag :post_id, @post.id %>
 

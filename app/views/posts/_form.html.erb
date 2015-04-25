@@ -6,7 +6,7 @@
   <%= f.hidden_field :poster_id, :value => current_user.id %>
 
   <p>
-    <%= f.label 'Weight: ' %>
+    <%= f.label 'Weight (in kgs): ' %>
     <%= f.number_field :weight, class: "form-control" %>
     </p>
  <p>
@@ -25,7 +25,11 @@
 
   <p>
     <%= f.label 'Date of Flight: ' %>
+    <% if @post.date_of_flight %>
     <%= text_field_tag :date, @post.date_of_flight.to_time.strftime("%b/%d/%Y %I:%M %p"), class: 'form-control', id:'datetimepicker4' %>
+    <% else %>
+    <%= text_field_tag :date, @post.date_of_flight, class: 'form-control', id:'datetimepicker4' %>
+    <% end %>
   </p>
 
   <p>
