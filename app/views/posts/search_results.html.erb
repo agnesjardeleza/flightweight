@@ -7,17 +7,13 @@
 	<ul class="timeline">
 	<% i = 0 %>
 	<% @posts.each do |x| %>
-		<% if i%2 == 0 %>
-		<li>
-		<% else %>
-		<li class="timeline-inverted" >
-		<% end %>
-	    
-	    <% if x.category == 'advertisement' %>
+		<% if x.category == 'advertisement' %>
+	    	<li>
 	    	<div class="timeline-badge">
 	    	<i class="glyphicon glyphicon-tag"></i>
 	    <% else %>
-	    <div class="timeline-badge warning">
+	    	<li class="timeline-inverted" >
+		    <div class="timeline-badge warning">
 	    	<i class="glyphicon glyphicon-flag"></i>
 	    <% end %>
 	    </div>
