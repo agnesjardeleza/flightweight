@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150424145742) do
     t.integer  "post_id"
     t.integer  "weight_to_be_used"
     t.text     "details"
-    t.string   "ticket_id"
+    t.string   "flight_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,10 +54,13 @@ ActiveRecord::Schema.define(version: 20150424145742) do
   create_table "posts", force: true do |t|
     t.integer  "poster_id"
     t.integer  "weight"
-    t.date     "date_of_flight"
+    t.datetime "date_of_flight"
     t.text     "details"
     t.string   "category"
-    t.string   "ticket_id"
+    t.string   "flight_number"
+    t.boolean  "is_active"
+    t.string   "origin"
+    t.string   "destination"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

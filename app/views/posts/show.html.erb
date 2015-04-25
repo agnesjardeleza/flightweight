@@ -1,34 +1,48 @@
 
+<div class="post-ad">
+<h2 class='post-name'>
+	<span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
+	<%= Person.find_by(user_id: @user.id).fullname %>
+</h2>
+	
+<div class='post-content'>
+  <div>
+  <table class="table">
+  	<tr><td>
+  		<strong> Weight: </strong> <%= @post.weight %> kgs <br>
+  		<strong> Origin: </strong> <%= @post.origin %> <br>
+  		<strong> Destination: </strong> <%= @post.destination %>  <br>
+  		<strong> Flight Schedule: </strong> <%= @post.date_of_flight.strftime("%b %d, %Y, %I:%M %P") %> <br>
+  		<strong> Flight Number: </strong> <%= @post.flight_number %>
+  	</td></tr>
+  	<tr>
+  		<td>
+  			 <strong> Details: </strong>
+  				<p><%= @post.details %></p>
+  		</td>
+  	</tr>
+  </table>
 
-	<h2><%= @person_name %></h2>
-<p>
-  <strong> <%= @person_name %> </strong>
+
   <br>
+
   
-  <strong> Weight </strong>
-  <p><%= @post.weight %></p>
-
-  <strong> Details </strong>
-  <p><%= @post.details %></p>
-
-  <strong> Flight Schedule </strong>
-  <p><%= @dof_str %></p>
-
-  <strong> Ticket ID </strong>
-  <p><%= @post.ticket_id %></p>
-
-
-  </p>
-  <br>
-  
+  <% if @post.is_active %>
   <% if current_user.id != @post.poster_id %>
   
     <p> 
-    <strong> Add Bid </strong>
     <%= render 'bids/form' %>
-     </p>
-     <br>
+    </p>
+    <br>
 
   <% end %>
 
   <%= render 'bids/list' %>
+  
+<% else %>
+  <% bid = Bid.find(Transaction.where(post_id: @post.id).first.bid_id) %>
+<strong>This offer is no longer available</strong>
+<p> This offer has been approved to <%= Person.find(bid.bidder_id).fullname %> </p>
+
+<% end %>
+</div>

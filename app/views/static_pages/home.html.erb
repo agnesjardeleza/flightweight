@@ -1,10 +1,38 @@
 <h1>Home</h1>
 
-<%#= current_person.fullname %>
-<%# if current_user %>
-	<%# if current_user.role == 'admin' %>
-		<!--Super System Administrator-->
-	<%# else %>
-		<%#= current_person.fullname %>
-	<%# end %>
-<%# end %>
+
+<ul class="timeline">
+<% i = 0 %>
+<% @posts.each do |x| %>
+	<% if i%2 == 0 %>
+	<li>
+	<% else %>
+	<li class="timeline-inverted" >
+	<% end %>
+    
+    <% if x.category == 'advertisement' %>
+    	<div class="timeline-badge">
+    	<i class="glyphicon glyphicon-tag"></i>
+    <% else %>
+    <div class="timeline-badge warning">
+    	<i class="glyphicon glyphicon-flag"></i>
+    <% end %>
+    </div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title"><%= User.find(x.poster_id).username %></h4>
+          <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> posted on <%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %> | Category: <%= x.category %></small></p>
+          <div class="timeline-body">
+						Date of Flight: <%= x.date_of_flight.to_time.strftime("%I:%M %P")%><br>
+						<% if x.category == 'request' %>
+							Weight Needed: 		
+						<% else %>
+							Weight Offered: 
+						<% end %>
+						<%= x.weight %> kgs<br>
+					</div>
+				</div>
+			</div>
+		</li>
+		<% i+=1 %>
+<% end %> 

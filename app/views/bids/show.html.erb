@@ -1,0 +1,15 @@
+<div>
+    <strong>Bidder: </strong> <%= Person.find(@bid.bidder_id).fullname %> <br>
+    <strong>Weight: </strong> <%= @bid.weight_to_be_used %> <br> 
+    <strong>Flight Number: </strong> <%= @bid.flight_number %> <br>
+    <strong>Details: </strong> 
+    <p>
+    <%= @bid.details %>
+    </p>
+    
+    <% if Post.find(@bid.post_id).poster_id == current_user.id %>
+      <%= render 'transactions/form' %>
+    <% end %>
+ 
+  </div>
+

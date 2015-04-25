@@ -1,0 +1,36 @@
+<% @bids = Bid.where(bidder_id: current_user.id) %>
+
+<% @bids.each do |p| %>
+
+  <% post = Post.find(p.post_id) %>
+  <% if !post.is_active %>
+      
+    <% transac = Transaction.where(post_id: post.id).first %>
+
+    <% if transac.bid_id == p.id %>
+        <strong>APPROVED</strong>
+    <% else %>
+        <strong>NOT APPROVED</strong>
+    <% end %>
+
+  <% end %>
+
+<div class='post-content'>
+  <div>
+  <table class="table">
+  	<tr><td>
+  		<strong> Weight: </strong> <%= p.weight_to_be_used %> kgs <br>
+  		<strong> Flight Number: </strong> <%= p.flight_number %>
+  	</td></tr>
+  	<tr>
+  		<td>
+  			 <strong> Details: </strong>
+  				<p><%= p.details %></p>
+  		</td>
+  	</tr>
+  </table>
+<%= link_to 'View Bid', p %>
+</div>
+<% end %>
+
+

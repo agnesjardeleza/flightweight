@@ -11,31 +11,42 @@ class TransactionsController < ApplicationController
   def edit
     @transaction= Transaction.find(params[:id])
   end
-
+  
   def update
-    @transaction =  Transaction.find(params[:id])
+    @transaction = Transaction.find(paramas[:id])
 
-    if @transaction.update(transaction_params)
-      redirect_to @transaction
+    post = Person.find(@transaction.poster)
+    if @transaction.save
+      post.is_active = false
+      post.save
+      redirect_to post
     else
-      render 'edit'
+      redirect_to post
     end
   end
+  
+
 
   def show
     @transaction = Transaction.find(params[:id])
   end
 
   def create
-    @transaction = Transaction.new(transaction_params)
+    @transaction = Transaction.new
+    @transaction.poster = params[:poster]
+    @transaction.bidder = params[:bidder]
+    @transaction.post_id = params[:post_id]
+    @transaction.bid_id = params[:bid_id]
+    @transaction.date = params[:date]
+    
 
+    post = Post.find(@transaction.post_id)
     if @transaction.save
-      person = Person.find(@transaction.poster)
-      person.is_active = false
-      person.save
-      redirect_to person
+      post.is_active = false
+      post.save
+      redirect_to post
     else
-      render 'new'
+      redirect_to post
     end
   end
   
