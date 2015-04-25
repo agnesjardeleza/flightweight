@@ -6,8 +6,10 @@
     <p>
     <%= @bid.details %>
     </p>
-
-    <%= render 'transactions/form' %>
+    
+    <% if Post.find(@bid.post_id).poster_id == current_user.id %>
+      <%= render 'transactions/form' %>
+    <% end %>
  
   </div>
 

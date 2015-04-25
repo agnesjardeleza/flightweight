@@ -1,13 +1,23 @@
 
 <h4>Bids</h4>
 
+<% if !Bid.where(post_id: @post.id).first %>
+  <em>No bids yet. Be the first to bid!</em>
+<% end %>
+
+<table class="table">
+
 <% Bid.where(post_id: @post.id).each do |b| %>
-  
   <div>
-    <strong>Bidder: </strong> <%= Person.find(b.bidder_id).fullname %> <br>
-    <strong>Weight: </strong> <%= b.weight_to_be_used %> <br> 
-    <strong>Flight Number: </strong> <%= b.flight_number %> <br>
-    <strong>Details: </strong> 
+  <div>
+    <span><img class="profile-pic-sm" src="<%= asset_path 'default_profile.jpg'%>"></span>
+    <strong><%= Person.find(b.bidder_id).fullname %></strong>
+  </div>
+  <div class='post-preview'>
+    <!-- <strong>Poster</strong> <%#= Person.find(p.poster_id).fullname %> <br> -->
+    Weight: <strong><%= b.weight_to_be_used %></strong>  kgs |
+    Flight Number: <strong><%= b.flight_number %></strong> <br>
+    Details:
     <p>
     <%= b.details %>
     </p>
@@ -15,5 +25,13 @@
   <%= link_to 'Approve', bid_path %>
 
   </div>
+  </div>
+  </td></tr>
+
 
 <% end %>
+
+
+
+
+</table>

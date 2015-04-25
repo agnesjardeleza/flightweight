@@ -1,3 +1,7 @@
+
+<div class="row">
+  <div class="col-md-8 add-bid">
+  <!-- <div class="col-md-8"><br>   -->
 <%= form_for :bid, url: bids_path do |f| %>
   
   <p>
@@ -17,10 +21,11 @@
 
   <%= hidden_field_tag :post_id, @post.id %>
 
- <p>
-    <%= f.submit %>
-  </p>
+ <div class="pull-right"><br> 
+  <%= button_tag 'Submit', :type=>'submit', :class=>'btn btn-primary'%>
+  </div>
  
 <% end %>
- 
+ </div>
+ </div>
 

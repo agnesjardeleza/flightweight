@@ -7,6 +7,11 @@
 	height: 100px;
 }
 
+.profile-pic-sm{
+	border-radius: 1000px;
+	height: 50px;
+}
+
 .post-ad{
 	margin-top: 20px;
 	margin-left: 20px;
@@ -19,4 +24,14 @@
 
 .post-content{
 	padding-left: 50px;
+}
+
+.post-preview{
+	padding-left: 60px;
+}
+
+.add-bid{
+	background-color: aliceblue;
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
