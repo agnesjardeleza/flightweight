@@ -21,8 +21,9 @@
     <p>
     <%= b.details %>
     </p>
+
  
-  <%if @user.id == @post.poster_id %>
+  <%if current_user.id == @post.poster_id %>
     <%= link_to 'Approve', bid_path %>
   <% end %>
 
