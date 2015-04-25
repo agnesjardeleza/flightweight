@@ -1,0 +1,26 @@
+<% @posts = Post.where(poster_id: current_user.id) %>
+
+<% @posts.each do |p| %>
+
+<div class='post-content'>
+  <div>
+  <table class="table">
+  	<tr><td>
+  		<strong> Weight: </strong> <%= p.weight %> kgs <br>
+  		<strong> Origin: </strong> <%= p.origin %> <br>
+  		<strong> Destination: </strong> <%= p.destination %>  <br>
+  		<strong> Flight Schedule: </strong> <%= p.date_of_flight.strftime("%b %d, %Y, %I:%M %P") %> <br>
+  		<strong> Flight Number: </strong> <%= p.flight_number %>
+  	</td></tr>
+  	<tr>
+  		<td>
+  			 <strong> Details: </strong>
+  				<p><%= p.details %></p>
+  		</td>
+  	</tr>
+  </table>
+<%= link_to 'View Post', p %>
+</div>
+<% end %>
+
+
