@@ -21,7 +21,7 @@ person = Person.create(user_id: 4,first_name: 'David', last_name: 'Hostallero', 
 i = 0
 
 while i < 10
-	post = Post.create(poster_id: 2, weight: i+1, date_of_flight: '2015-04-30', details: 'detail' + i.to_s, flight_number: 12+i , category: 'request')
-	post = Post.create(poster_id: 3, weight: i+1, date_of_flight: '2015-04-30', details: 'detail' + i.to_s, flight_number: 123+i+1, category: 'advertisement' )
+	post = Post.create(poster_id: 2, weight: i+1, date_of_flight: '2015-04-30', details: 'detail' + i.to_s, flight_number: 12+i , category: 'request', origin: 'manila', destination: 'cebu', is_active: true)
+	post = Post.create(poster_id: 3, weight: i+1, date_of_flight: '2015-04-30', details: 'detail' + i.to_s, flight_number: 123+i+1, category: 'advertisement', origin: 'cebu', destination: 'manila', is_active: true)
 	i = i+1
 end
