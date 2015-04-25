@@ -1,8 +1,10 @@
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for @post do |f| %>
   <div class="row">
   <!-- <div class="col-md-4"></div> -->
   <div class="col-md-8"><br>  
   
+  <%= f.hidden_field :poster_id, :value => current_user.id %>
+
   <p>
     <%= f.label 'Weight: ' %>
     <%= f.number_field :weight, class: "form-control" %>
@@ -18,7 +20,7 @@
  
   <p>
     <%= f.label 'Date of Flight: ' %>
-    <%= text_field_tag :date, nil, class: 'form-control', id:'datetimepicker4' %>
+    <%= text_field_tag :date, @post.date_of_flight.to_time.strftime("%b/%d/%Y %I:%M %p"), class: 'form-control', id:'datetimepicker4' %>
   </p>
 
   <p>

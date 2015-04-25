@@ -27,7 +27,7 @@ E-mail Address: <%= @person.email %><br>
 		<%= x.weight %><br>
 		<%= link_to 'View', post_path(poster_id: x.poster_id) %> 
 		<% if current_user == User.find(x.poster_id) %>| 
-			<%= link_to 'Edit', edit_post_path(poster_id: x.poster_id) %> | 
+			<%= link_to 'Edit', edit_post_path(id: x.id) %> | 
 			<%= link_to 'Delete' ,post_path(user_id: x.poster_id, id: x.id), method: :delete %>
 		<% end %>
 		<br><br>

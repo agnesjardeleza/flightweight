@@ -1,14 +1,15 @@
 
 <div class="post-ad">
-<h2 class='post-name'>
-	<span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
-	<%= Person.find_by(user_id: @user.id).fullname %>
-</h2>
-	
+  <span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
+  <h2 class='post-name'> <%= Person.find_by(user_id: @user.id).fullname %></h2>
+  <h6><strong> Address: </strong> <%= Person.find_by(user_id: @user.id).address %></h6>
+  <h6><strong>Contact Number: </strong><%= Person.find_by(user_id: @user.id).contact_num %></h6>
+	<h6> <strong>E-mail Address: </strong><%= Person.find_by(user_id: @user.id).email %></h6>
 <div class='post-content'>
   <div>
   <table class="table">
   	<tr><td>
+      <strong> Category: </strong> <%= @post.category %> <br>
   		<strong> Weight: </strong> <%= @post.weight %> kgs <br>
   		<strong> Origin: </strong> <%= @post.origin %> <br>
   		<strong> Destination: </strong> <%= @post.destination %>  <br>
@@ -27,20 +28,17 @@
   <br>
   
   <% if @post.is_active %>
-  <% if current_user.id != @post.poster_id %>
-  
-    <p> 
-    <strong> Add Bid </strong>
-    <%= render 'bids/form' %>
-     </p>
-     <br>
+    <% if current_user.id != @post.poster_id %>
+    
+      <p> 
+      <h2>Add Bid</h2>
+      <%= render 'bids/form' %>
+       </p>
+       <br>
 
-  <% end %>
-
+    <% end %>
   <%= render 'bids/list' %>
 <% else %>
-
   <strong>This offer is no longer available</strong>
-
 <% end %>
 </div>

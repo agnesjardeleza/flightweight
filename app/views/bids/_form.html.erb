@@ -1,17 +1,17 @@
 <%= form_for :bid, url: bids_path do |f| %>
   
   <p>
-    <%= f.label :weight_to_be_used %><br>
+    <%= f.label 'Weight: ' %>
     <%= f.number_field :weight_to_be_used %>
   </p>
  
   <p>
-    <%= f.label :details %><br>
+    <%= f.label 'Details: ' %>
     <%= f.text_area :details %>
   </p>
  
   <p>
-    <%= f.label :flight_number %><br>
+    <%= f.label 'Flight Number: ' %>
     <%= f.text_field :flight_number %>
   </p>
 
