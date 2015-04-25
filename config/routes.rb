@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'search_results' => 'posts#search_results'
+      get 'search_results_destination' => 'posts#search_destination_date'
     end
   end
   resources :transactions
