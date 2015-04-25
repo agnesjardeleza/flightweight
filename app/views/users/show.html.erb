@@ -48,20 +48,33 @@ E-mail Address: <%= @person.email %><br>
 
 <h2> Comments: </h2>
 
+<div class='col-xs-12 col-md-8'>
+<ul class="timeline" style="margin-left: -600px;">
 <% if @comments.length > 0 %>
 	<% @comments.each do |x| %>
-		<div>
-		<span><img class="profile-pic-sm" src="<%= asset_path 'default_profile.jpg'%>"></span>
-		by <%= User.find(x.commenter_id).username %>
-		</div>
-		
-		<small><%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %></small>
-			<% if x.commenter_id == current_user.id %>
-			 | <%= link_to 'Edit', edit_comment_path(id: x.id) %>
-			 | <%= link_to 'Delete', comment_path(user_id: @user.id, id: x.id), method: :delete%><br>
-			<% end %>
-		<%= x.comment %>
+		<li class="timeline-inverted" >
+			<div class="timeline-badge">
+    		<i class="glyphicon glyphicon-tag"></i>
+    			</div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title"><%= User.find(x.commenter_id).username %></h4>
+          <p><small class="text-muted"><%= x.created_at.to_time.strftime("%b %d, %Y, %I:%M %P") %></small>
+						<% if x.commenter_id == current_user.id %>
+						 | <%= link_to 'Edit', edit_comment_path(id: x.id) %>
+						 | <%= link_to 'Delete', comment_path(user_id: @user.id, id: x.id), method: :delete%><br>
+						<% end %>
+						</small></p>
+          <div class="timeline-body">
+          	<%= x.comment %>
+        	</div>
+      </div>
+    </div>
+  </li>
+
 	<% end %>
+	</ul>
+	</div>
 <% else %>
 	There are no comments available for this user.
 <% end %>
