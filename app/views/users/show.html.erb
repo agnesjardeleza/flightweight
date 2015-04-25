@@ -34,11 +34,11 @@ E-mail Address: <%= @person.email %><br>
 			Weight Offered: 
 		<% end %>
 		
-		<%= x.weight %> kgs<br>
-		<%= link_to 'View', post_path(x) %> 
-		<% if current_user == User.find(x.poster_id) %>| 
-			<%= link_to 'Edit', edit_post_path(id: x.id) %> | 
-			<%= link_to 'Delete' ,post_path(user_id: x.poster_id, id: x.id), method: :delete %>
+		<%= x.weight %> kgs<br><br>
+		<%= link_to 'View', post_path(x), class: 'btn btn-primary btn-xs' %> 
+		<% if current_user == User.find(x.poster_id) %> 
+			<%= link_to 'Edit', edit_post_path(id: x.id), class: 'btn btn-primary btn-xs btn-warning' %> 
+			<%= link_to 'Delete' ,post_path(user_id: x.poster_id, id: x.id), method: :delete, class: 'btn btn-primary btn-xs btn-danger' %>
 		<% end %>
 
 	</td></tr>

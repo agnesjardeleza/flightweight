@@ -39,7 +39,7 @@
     <%= render 'bids/list' %>
     </div>
 
-    <% if current_user.id != @post.poster_id %>
+    <% if current_user && current_user.id != @post.poster_id %>
     
       <p> 
 <!-- <<<<<<< HEAD -->
