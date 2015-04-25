@@ -51,6 +51,11 @@
       <%= render 'bids/form' %>
        </p>
        <br>
+    <% else %>
+        <div class="col-md-8">
+          <em><%= link_to "Login", login_users_path %> or 
+          <%= link_to "Register",new_user_path %> to proceed with the bidding</em>
+        </div>
     <% end %>
   
 <% else %>
