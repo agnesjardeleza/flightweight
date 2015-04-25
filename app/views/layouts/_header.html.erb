@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/asf"><%= image_tag('Logo1-white.png', :class => "img", :alt => "Brand") %></a>
+      <a class="pull-left" href="/asf"><%= image_tag('Logo3-white.png', :class => "img", :alt => "Brand") %></a>
     </div>
      
 
@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav go">
         <li><%= link_to 'Home', root_path %></a></li>
-
+        
          <% if current_user %>
    
           <li class="dropdown">
@@ -26,7 +26,7 @@
             <li><%= link_to 'List',  posts_path %></li>
             <li><%= link_to 'Add', new_post_path %></li>
           </ul>
-        </li>
+          </li>
         <% end %>
         <li><%= link_to 'Register', new_user_path %></li>
         <li class="dropdown">
@@ -52,7 +52,7 @@
 
      <%= form_tag({controller: 'searches', action: 'search_username'}, method: "get", class: 'navbar-form navbar-left') do %>
         <%= text_field_tag :username, nil, placeholder: 'Username', class: 'form-control' %>
-        <button type ="submit" class="btn btn-default color-blue">Search</button>
+        <button type ="submit" class="btn btn-default outline">Search</button>
     <% end %> 
      
 
