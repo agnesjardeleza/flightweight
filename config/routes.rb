@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'searches/search_username' => 'searches#search_username'
   get 'searches/search_flight_number'=> 'searches#search_flight_number'
+  get '/my_posts' => 'posts#person_posts'
+  get '/my_bids' => 'bids#person_bids'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

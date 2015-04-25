@@ -39,8 +39,9 @@
 
   <%= render 'bids/list' %>
 <% else %>
-
-  <strong>This offer is no longer available</strong>
+  <% bid = Bid.find(Transaction.where(post_id: @post.id).first.bid_id) %>
+<strong>This offer is no longer available</strong>
+<p> This offer has been approved to <%= Person.find(bid.bidder_id).fullname %> </p>
 
 <% end %>
 </div>

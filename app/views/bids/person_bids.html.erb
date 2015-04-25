@@ -1,0 +1,23 @@
+<% @bids = Bid.where(bidder_id: current_user.id) %>
+
+<% @bids.each do |p| %>
+
+<div class='post-content'>
+  <div>
+  <table class="table">
+  	<tr><td>
+  		<strong> Weight: </strong> <%= p.weight_to_be_used %> kgs <br>
+  		<strong> Flight Number: </strong> <%= p.flight_number %>
+  	</td></tr>
+  	<tr>
+  		<td>
+  			 <strong> Details: </strong>
+  				<p><%= p.details %></p>
+  		</td>
+  	</tr>
+  </table>
+<%= link_to 'View Bid', p %>
+</div>
+<% end %>
+
+
