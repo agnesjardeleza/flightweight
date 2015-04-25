@@ -9,13 +9,18 @@
     </p>
  <p>
     <%= f.label 'Origin: '%>
-    <%= f.text_field :origin %>
+    <%= f.text_field :origin, class: "form-control" %>
  </p>
  <p>
     <%= f.label 'Desitination: '%>
-    <%= f.text_field :destination %>
+    <%= f.text_field :destination, class: "form-control" %>
   </p>
  
+  <p>
+    <%= f.label 'Flight Number: '%>
+    <%= f.text_field :flight_number, class: "form-control" %>
+  </p>
+
   <p>
     <%= f.label 'Date of Flight: ' %>
     <%= text_field_tag :date, nil, class: 'form-control', id:'datetimepicker4' %>
@@ -32,11 +37,7 @@
    <%= f.select(:category, [['Request','request'],['Advertisement','advertisement']], {class: 'form-control'})  %>  
    </p>
   
-  <p>
-    <%= f.label 'Flight Number: '%>
-    <%= f.text_field :flight_number %>
-  </p>
-
+  
 
   <%= f.hidden_field :is_active, value: true %>
  
