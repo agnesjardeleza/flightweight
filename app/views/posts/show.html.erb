@@ -1,12 +1,16 @@
 
 <div class="post-ad">
+  <div class="pull-left" style="padding-top:20px; margin-right: 20px;">
   <span><img class="profile-pic" src="<%= asset_path 'default_profile.jpg'%>"></span>
+  </div>
+  <div class="pull-left">
   <h2 class='post-name'> <%= Person.find_by(user_id: @user.id).fullname %></h2>
   <h6><strong> Address: </strong> <%= Person.find_by(user_id: @user.id).address %></h6>
   <h6><strong>Contact Number: </strong><%= Person.find_by(user_id: @user.id).contact_num %></h6>
-	<h6> <strong>E-mail Address: </strong><%= Person.find_by(user_id: @user.id).email %></h6>
+  <h6> <strong>E-mail Address: </strong><%= Person.find_by(user_id: @user.id).email %></h6>
+  </div>
 <div class='post-content'>
-  <div>
+  <div class="col-md-8">
   <table class="table">
   	<tr><td>
       <strong> Category: </strong> <%= @post.category %> <br>
@@ -23,22 +27,31 @@
   		</td>
   	</tr>
   </table>
+  </div>
 
 
   <br>
 
   
   <% if @post.is_active %>
+    
+    <div class="col-md-8">
+    <%= render 'bids/list' %>
+    </div>
+
     <% if current_user.id != @post.poster_id %>
     
       <p> 
-      <h2>Add Bid</h2>
+<!-- <<<<<<< HEAD -->
+      <!-- <h2>Add Bid</h2> -->
+<!-- ======= -->
+      <!-- <h2>Add Bid</h2> -->
       <%= render 'layouts/flash' %>
+<!-- >>>>>>> 591bf91b580d5ad7a70ea00082716a700723ecc5 -->
       <%= render 'bids/form' %>
        </p>
        <br>
     <% end %>
-  <%= render 'bids/list' %>
   
 <% else %>
   <% bid = Bid.find(Transaction.where(post_id: @post.id).first.bid_id) %>
