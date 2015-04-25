@@ -52,6 +52,12 @@ class PostsController < ApplicationController
     @posts = Post.where(@flight_number)
   end
 
+  def search_destination_date
+    @destination = params[:destination]
+    @origin = params[:origin]
+    @date = params[:date]
+  end
+  
   
   private
     def post_params
