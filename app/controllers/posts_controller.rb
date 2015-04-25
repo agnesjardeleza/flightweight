@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def search_results
     @flight_number = params[:flight_number]
-    @posts = Post.where(@flight_number)
+    @posts = Post.where(flight_number: @flight_number)
   end
 
   
