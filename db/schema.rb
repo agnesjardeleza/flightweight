@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 20150424145742) do
   create_table "bids", force: true do |t|
     t.integer  "bidder_id"
     t.integer  "post_id"
-    t.integer  "weight_to_be_used", default: 0
+    t.integer  "weight_to_be_used"
     t.text     "details"
-    t.string   "flight_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150424145742) do
 
   create_table "comments", force: true do |t|
     t.integer  "commenter_id"
-    t.integer  "user_id"
+    t.integer  "person_id"
     t.integer  "rating"
     t.text     "comment"
     t.datetime "created_at"
@@ -53,14 +52,10 @@ ActiveRecord::Schema.define(version: 20150424145742) do
 
   create_table "posts", force: true do |t|
     t.integer  "poster_id"
-    t.integer  "weight",         default: 0
-    t.datetime "date_of_flight"
+    t.integer  "weight"
+    t.date     "date_of_flight"
     t.text     "details"
-    t.string   "category"
-    t.string   "flight_number"
-    t.boolean  "is_active"
-    t.string   "origin"
-    t.string   "destination"
+    t.integer  "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
