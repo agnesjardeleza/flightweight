@@ -1,3 +1,5 @@
+
+<h2>My Bids</h2>
 <% @bids = Bid.where(bidder_id: current_user.id) %>
 
 <% @bids.each do |p| %>
